@@ -1,0 +1,50 @@
+.home1 {
+  position: absolute;
+  top: 295px;
+  left: 418px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 839px;
+  height: 398px;
+}
+.login,
+.register {
+  width: 302px;
+  position: absolute;
+  top: 61px;
+  left: 72px;
+  cursor: pointer;
+}
+.register {
+  left: 418px;
+}
+.home {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 950px;
+  text-align: center;
+  font-size: 72px;
+  color: #000;
+  font-family: Inter;
+}
+@media screen and (max-width: 1200px) {
+  .home {
+    padding-left: 45px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 960px) {
+  .home {
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .home {
+    gap: 10px;
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+}
