@@ -5,7 +5,7 @@ const Login = () => {
   const router = useRouter();
 
   const onDaftarDiSiniClick = useCallback(() => {
-    router.push("/register-try");
+    router.push("/register");
   }, [router]);
 
   return (

@@ -266,7 +266,7 @@
     flex-direction: column;
   }
   .login {
-    gap: 10px;
+    gap: 11px;
     padding-left: 75px;
     box-sizing: border-box;
   }
