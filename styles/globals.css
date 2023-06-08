@@ -1,15 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'bootstrap/dist/css/bootstrap.css';
+/* @import 'bootstrap/dist/css/bootstrap.css'; */
 
-/* @layer components {
+@layer components {
     .btn {
-        @apply bg-green-600 py-2 px-4 rounded-lg inline-block font-semibold border border-green-600 hover: bg-white hover:border-white hover:text-green-600 transition duration-300
+        @apply bg-green-600 py-2 px-4 rounded-lg inline-block font-semibold border border-green-600 hover:bg-white hover:border-white hover:text-green-600 transition duration-300
     }
-} */
+}
 
-:root {
+/* :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
@@ -21,7 +21,7 @@
         --background-start-rgb: 0, 0, 0;
         --background-end-rgb: 0, 0, 0;
     }
-}
+} */
 
 body {
     color: rgb(var(--foreground-rgb));
