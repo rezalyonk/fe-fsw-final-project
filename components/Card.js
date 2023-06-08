@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from './Button'
 
-
 const Card = ({image,title}) => {
   return (
     <div className='rounded-xl relative overflow-hidden group hover:scale-105 hover:shadow-md duration-300'>

@@ -1,26 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.css';
 
-@layer components {
-    .btn{
-        @apply bg-green-600 py-2 px-4 rounded-lg inline-block font-semibold border border-green-600 hover:bg-white hover:border-white hover:text-green-600 transition duration-300
-    }
-}
-/* 
-@layer base {
-    .categorieSlider .swiper-button-prev,
-    .categorieSlider .swiper-button-next {
-        @apply bg-green-600 text-white top-[92%] md:top-[90%] w-[35px] rounded-full z-20
-    }
-    .categorieSlider .swiper-button-prev {
-        @apply left-[35%] md:left-[40%] lg:left-[45%]
-    }
-    .categorieSlider .swiper-button-next {
-        @apply right-[35%] md:right-[40%] lg:right-[45%]
-    }
-    .categorieSlider .swiper-button-prev:after
-    .categorieSlider .swiper-button-next:after {
-        @apply text-2xl
+/* @layer components {
+    .btn {
+        @apply bg-green-600 py-2 px-4 rounded-lg inline-block font-semibold border border-green-600 hover: bg-white hover:border-white hover:text-green-600 transition duration-300
     }
 } */
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
