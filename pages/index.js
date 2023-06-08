@@ -1,37 +1,22 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { useCallback } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
-import { useRouter } from "next/router";
-import styles from "./index.module.css";
-const Home = () => {
-  const router = useRouter();
+import Head from 'next/head'
+import Hero from '../components/Hero'
+import Product from '../components/Product'
+import Categorie from '../components/Categorie'
+import Cta from '@/components/Cta'
+import Footer from '@/components/Footer'
 
-  const onLoginClick = useCallback(() => {
-    router.push("/login");
-  }, [router]);
-
-  const onRegisterClick = useCallback(() => {
-    router.push("/register-try");
-  }, [router]);
-
+export default function Home (){
   return (
-    <div className={styles.home}>
-      <div className={styles.home1}>Home</div>
-      <Button className={styles.login} variant="primary" onClick={onLoginClick}>
-        Login
-      </Button>
-      <Button
-        className={styles.register}
-        variant="primary"
-        onClick={onRegisterClick}
-      >
-        Register
-      </Button>
+    <div>
+      <Head>
+        <title>Fly Ticket</title>
+      </Head>
+      <Hero/>
+      <Product/>
+      <Categorie/>
+      <Cta/>
+      <Footer/>
     </div>
-  );
-};
-
-export default Home;
+  )
+}
 
