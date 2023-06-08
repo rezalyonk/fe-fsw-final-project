@@ -1,14 +1,14 @@
-import FormLogin from "../../components/form-login";
+import FormRegister from "../../components/form-register";
 import styles from "./index.module.css";
-const Login = () => {
+const Register = () => {
   return (
-    <div className={styles.login}>
+    <div className={styles.register}>
       <div className={styles.wLogin}>
         <img className={styles.frame23301} alt="" src="/frame-2330-1@2x.png" />
-        <FormLogin />
+        <FormRegister />
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
