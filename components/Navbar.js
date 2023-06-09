@@ -33,7 +33,8 @@ const Navbar = () => {
         </div>
         <div className='p-4 flex gap-5'>
         <Link href="http://localhost:3000/login"><button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '>Login</button></Link>
-            <button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '><AiOutlineShoppingCart/></button>
+        <Link href="http://localhost:3000/login"><button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '><AiOutlineShoppingCart/></button></Link>
+            
         </div>
         {toggle ?(
               <AiOutlineClose onClick={()=>setToggle
