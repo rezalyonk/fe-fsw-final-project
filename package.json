@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
     "bootstrap": "^5.2.3",
+    "classnames": "^2.3.2",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "js-cookie": "^3.0.5",

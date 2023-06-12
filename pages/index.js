@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Hero from '../components/Hero'
 import Product from '../components/Product'
 import Categorie from '../components/Categorie'
-import Cta from '@/components/Cta'
 import Footer from '@/components/Footer'
+import MoreInfoModal from '@/components/MoreInfoModal'
+import Cta from '@/components/Cta'
 
 export default function Home (){
   return (
@@ -14,6 +15,7 @@ export default function Home (){
       <Hero/>
       <Product/>
       <Categorie/>
+      <MoreInfoModal/>
       <Cta/>
       <Footer/>
     </div>

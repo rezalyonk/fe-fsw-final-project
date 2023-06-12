@@ -56,10 +56,10 @@ const CategorieSlider = () => {
             <div className='flex flex-col gap-y-5 md:flex-row md:gap-x-16'>
               <Image src={categorie.image} height={900} width={1300} />
               <div className='flex flex-col gap-y-5 '>
-                    <div className='text-2xl font-medium flex gap-x-2 items-center'>
+                    <div className='text-[20px] lg:text-2xl font-medium flex gap-x-2 items-center'>
                         {categorie.name}
                   </div>
-                    <div className='text-[20px] text-gray-700 '>{categorie.description}
+                    <div className='text-[15px] lg:text-[20px] text-gray-700 '>{categorie.description}
                     <div className='mt-5'>
                         <Button link="#" text={categorie.btnText}/>
                        </div>
