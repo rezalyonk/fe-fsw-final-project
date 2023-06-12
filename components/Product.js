@@ -11,7 +11,7 @@ const Product = () => {
           <Card image="/assets/Batik.jpg" title="Batik Air"/>
           <Card image="/assets/Melindo-air.jpg" title="Melindo Air"/>
           <Card image="/assets/Garuda.jpg" title="Garuda Air"/>
-          <Card image="/assets/Air-asia.jpg" title="Air Asia"/>
+          <Card image="/assets/pl.jpg" title="pl"/>
           <Card image="/assets/Adam-air.jpeg" title="Adam Air"/>
         </div>
     </section>
