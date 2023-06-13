@@ -17,7 +17,7 @@
   line-height: 36px;
 }
 .masuk,
-.username {
+.nama {
   align-self: stretch;
 }
 .masuk {
@@ -26,30 +26,21 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.username {
+.nama {
   position: relative;
   line-height: 18px;
 }
-.username1 {
-  border: 0;
-  font-family: Poppins;
-  font-size: 14px;
-  background-color: transparent;
-  flex: 1;
-  position: relative;
-  line-height: 20px;
-  color: #8a8a8a;
-  text-align: left;
-}
 .input,
-.usernameWrapper {
+.inputChild {
   align-self: stretch;
   display: flex;
 }
-.usernameWrapper {
-  border-radius: 16px;
-  background-color: #fff;
+.inputChild {
   border: 1px solid #d0d0d0;
+  font-family: Poppins;
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 16px;
   flex-direction: row;
   padding: 12px 16px;
   align-items: center;
@@ -61,64 +52,17 @@
   justify-content: flex-start;
   gap: 4px;
 }
-.buatPassword {
+.email {
   flex: 1;
   position: relative;
   line-height: 18px;
 }
-.vectorIcon,
-.vectorIcon1 {
-  position: absolute;
-  height: 75%;
-  width: 100%;
-  top: 12.5%;
-  right: 0;
-  bottom: 12.5%;
-  left: 0;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.vectorIcon1 {
-  height: 33.33%;
-  width: 33.33%;
-  top: 33.33%;
-  right: 33.33%;
-  bottom: 33.33%;
-  left: 33.33%;
-}
-.fieye {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.buatPasswordParent {
-  gap: 16px;
-}
-.alamatContainer,
-.buatPasswordParent {
-  align-self: stretch;
-  border-radius: 16px;
-  background-color: #fff;
-  border: 1px solid #d0d0d0;
-  display: flex;
-  flex-direction: row;
-  padding: 12px 16px;
-  align-items: center;
-  justify-content: flex-start;
-}
-.inputChild,
+.inputItem,
 .terbitkan {
   font-size: 14px;
   font-family: Poppins;
 }
-.inputChild {
+.inputItem {
   border: 1px solid #d0d0d0;
   background-color: #fff;
   align-self: stretch;
