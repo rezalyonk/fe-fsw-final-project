@@ -16,7 +16,7 @@ const NotFoundPage = () => {
         <p className={styles.subtitle}>Anda tersesat di negeri 404.</p>
         <p className={styles.subtitle}>Tolong kembalilah sebelum tikus komputer mengambil makan siang!.</p>
         <div className={styles.btnBackContainer}>
-            <a className={styles.btnback} href="http://localhost:3000">Balik yuk!</a>
+            <a className={styles.btnback} href="https://flyticket.netlify.app">Balik yuk!</a>
         </div>
         <img src="https://assets.codepen.io/1538474/astronaut.svg" className={styles.astronaut} />
         <img src="https://assets.codepen.io/1538474/spaceship.svg" className={styles.spaceship} />
