@@ -4,7 +4,7 @@
   height: 950px;
   object-fit: cover;
 }
-.forgotpassword,
+.lupaPassword,
 .wLogin {
   display: flex;
   justify-content: flex-start;
@@ -18,7 +18,7 @@
   align-items: center;
   gap: 134px;
 }
-.forgotpassword {
+.lupaPassword {
   position: relative;
   width: 100%;
   flex-direction: column;
@@ -28,7 +28,7 @@
   .wLogin {
     flex-direction: column;
   }
-  .forgotpassword {
+  .lupaPassword {
     padding-left: 45px;
     box-sizing: border-box;
   }
@@ -42,13 +42,13 @@
   .wLogin {
     flex-direction: column;
   }
-  .forgotpassword {
+  .lupaPassword {
     padding-left: 75px;
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 420px) {
-  .forgotpassword {
+  .lupaPassword {
     gap: 10px;
     padding-left: 75px;
     box-sizing: border-box;
