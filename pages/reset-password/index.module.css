@@ -1,0 +1,56 @@
+.frame23301 {
+    position: relative;
+    width: 719px;
+    height: 950px;
+    object-fit: cover;
+  }
+  .resetPassword,
+  .wLogin {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .wLogin {
+    align-self: stretch;
+    background-color: #fff;
+    overflow: hidden;
+    flex-direction: row;
+    padding: 0 0 0 1px;
+    align-items: center;
+    gap: 134px;
+  }
+  .resetPassword {
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 1200px) {
+    .wLogin {
+      flex-direction: column;
+    }
+    .resetPassword {
+      padding-left: 45px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    .frame23301 {
+      display: none;
+      max-width: 50%;
+      height: auto;
+    }
+    .wLogin {
+      flex-direction: column;
+    }
+    .resetPassword {
+      padding-left: 75px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .resetPassword {
+      gap: 10px;
+      padding-left: 75px;
+      box-sizing: border-box;
+    }
+  }
