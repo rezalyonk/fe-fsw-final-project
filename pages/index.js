@@ -5,6 +5,7 @@ import Categorie from '../components/Categorie'
 import Footer from '@/components/Footer'
 import MoreInfoModal from '@/components/MoreInfoModal'
 import Cta from '@/components/Cta'
+import Navbar from '@/components/Navbar'
 
 export default function Home (){
   return (
@@ -12,6 +13,7 @@ export default function Home (){
       <Head>
         <title>Fly Ticket</title>
       </Head>
+      <Navbar/>
       <Hero/>
       <Product/>
       <Categorie/>
