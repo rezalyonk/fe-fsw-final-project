@@ -1,23 +1,11 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "./form-register.module.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import styles from "./form-datapenumpang.module.css";
 import axios from 'axios';
-
-
-  
-
-
-  
-
 
 const FormRegister = () => {
   const router = useRouter();
-  const [password, setPassword] = useState("");
- const [showPassword, setShowPassword] = useState(false);
  const [formData, setFormData] = useState({
-  username: '',
-  password: '',
   nama_lengkap: '',
   alamat: '',
   email: '',
@@ -25,13 +13,8 @@ const FormRegister = () => {
 });
 
   const onMasukDiSiniClick = useCallback(() => {
-    router.push("/login");
+    router.push("/privacy");
   }, [router]);
-
-
-  const toggleShowPassword = useCallback(() => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  }, []);
 
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
@@ -54,12 +37,12 @@ const FormRegister = () => {
 
     try {
       // Make a POST request to the register API endpoint
-      const response = await axios.post('/api/register', formData);
+      const response = await axios.post('/api/datapenumpang', formData);
       console.log(response.data); // Log the response data
       // Handle the response as needed
 
-      // Redirect to the login page
-      router.push('/login');
+      // Redirect to the histori page
+      router.push('/rincian pembelian');
     } catch (error) {
       console.error(error);
       // Handle the error
@@ -68,50 +51,13 @@ const FormRegister = () => {
 
   return (
     <div  className={styles.frameParent}>
-      <div className={styles.logoWrapper}>
-        <img className={styles.logoIcon} alt="" src="/logo@2x.png" />
-      </div>
+      <div className={styles.card}>
+      
       <div className={styles.masuk}>
-        <b className={styles.daftar}>Daftar</b>
+        <b className={styles.daftar}>Isi Data Penumpang</b>
       </div>
       <form className={styles.inner} onSubmit={handleSubmit}>
       
-        <div className={styles.input}>
-          <div className={styles.username}>Username</div>
-          <div className={styles.usernameWrapper}>
-            <input
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Username"
-              required
-            />
-          </div>
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Buat Password</div>
-          </div>
-          <div className={styles.buatPasswordParent}>
-            <input
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className={styles.username1}
-              type={showPassword ? "text" : "password"}
-              placeholder="Buat Password"
-              required
-            />
-            <button
-              className={styles.showPasswordButton}
-              onClick={toggleShowPassword}
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          </div>
-        </div>
         <div className={styles.input}>
           <div className={styles.username}>Nama Lengkap</div>
           <div className={styles.usernameWrapper}>
@@ -125,6 +71,35 @@ const FormRegister = () => {
               required
             />
           </div>
+        </div>
+        <div className={styles.input}>
+          <div className={styles.masuk}>
+            <div className={styles.buatPassword}>Tanggal Lahir</div>
+          </div>
+          <div className={styles.alamatContainer}>
+            <input
+              name="tanggal lahir"
+              value={formData.tanggallahir}
+              onChange={handleChange}
+              className={styles.username1}
+              type="date"
+              placeholder="dd/mm/yy "
+            />
+          </div>
+        </div>
+        <div className={styles.input}>
+          <div className={styles.masuk}>
+            <div className={styles.buatPassword}>Kewarganegaraan</div>
+          </div>
+          <input
+            name="Kewarganegaraan"
+            value={formData.kewarganegaraan}
+            onChange={handleChange}
+            className={styles.inputChild}
+            type="text"
+            placeholder="Contoh: indonesia"
+            required
+          />
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
@@ -143,48 +118,62 @@ const FormRegister = () => {
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Email</div>
+            <div className={styles.buatPassword}>KTP Paspor</div>
           </div>
           <input
-            name="email"
-            value={formData.email}
+            name="KTP/Paspor"
+            value={formData.KTPPaspor}
             onChange={handleChange}
             className={styles.inputChild}
-            type="email"
-            placeholder="Contoh: johndee@gmail.com"
+            type="integer"
+            placeholder="Contoh: 27397108938979"
             required
           />
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Nomor Telepon</div>
+            <div className={styles.buatPassword}>Negara penerbit</div>
           </div>
-          <div className={styles.alamatContainer}>
-            <input
-              name="nomor_telepon"
-              value={formData.nomor_telepon}
-              onChange={handleChange}
-              className={styles.username1}
-              type="tel"
-              placeholder="+62 . "
-              required
-            />
-          </div>
+          <input
+            name="negarapenerbit"
+            value={formData.negarapenerbit}
+            onChange={handleChange}
+            className={styles.inputChild}
+            type="text"
+            placeholder="Contoh: indonesia"
+            required
+          />
         </div>
+        
+        <div className={styles.input}>
+          <div className={styles.masuk}>
+            <div className={styles.buatPassword}>Masa berlaku</div>
+          </div>
+          <input
+            name="masaberlaku"
+            value={formData.masaberlaku}
+            onChange={handleChange}
+            className={styles.inputChild}
+            type="date"
+            placeholder="dd/mm/yyyy"
+            required
+          />
+        </div>
+       
         <div className={styles.buttonWrapper}>
           <button className={styles.button} type="submit">
-            <div className={styles.terbitkan}>Daftar</div>
+            <div className={styles.terbitkan}>Simpan</div>
           </button>
         </div>
         </form>
       
       <div className={styles.register}>
-        <div className={styles.sudahPunyaAkun}>Sudah punya akun?</div>
-        <button className={styles.masukDiSini} onClick={onMasukDiSiniClick}>
-          Masuk di sini
-        </button>
+        <p className={styles.sudahPunyaAkun}>Saya setuju dengan ketentuan yang berlaku : <span className={styles.masukDiSini} onClick={onMasukDiSiniClick}>privacy and policy</span></p>
+      </div>
       </div>
     </div>
+
+    
   );
 };
 

@@ -1,0 +1,71 @@
+.icon{
+  color: blueviolet;
+}
+.span{
+  font-weight: bold;
+  font-style: italic;
+  color: blueviolet;
+  margin-left: 5px;
+}
+.span2{
+  font-weight: bold;
+  font-style: italic;
+  color: gray;
+  margin-left: 5px;
+
+}
+.proses{
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.register,
+.wLogin {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.wLogin {
+  align-self: stretch;
+  background-color: #fff;
+  overflow: hidden;
+  flex-direction: row;
+  padding: 0 0 0 1px;
+  align-items: center;
+  gap: 134px;
+}
+.register {
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 1200px) {
+  .wLogin {
+    flex-direction: column;
+  }
+  .register {
+    padding-left: 45px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 960px) {
+  .frame23301 {
+    display: none;
+    max-width: 50%;
+    height: auto;
+  }
+  .wLogin {
+    flex-direction: column;
+  }
+  .register {
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .register {
+    gap: 10px;
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+}
