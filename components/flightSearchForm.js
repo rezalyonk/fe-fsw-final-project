@@ -88,6 +88,10 @@ const FlightSearchForm = () => {
           onChange={(e) => setReturnDate(e.target.value)}
         />
       </div>
+      <div className={styles.box}>
+        <input className={styles.check} type="checkbox" id="switch" />
+        <label className={styles.lb} for="switch"></label>
+        </div>
       </div>
       <div className={styles.pl}>
       <RiWheelchairFill className={styles.iconps}/>
