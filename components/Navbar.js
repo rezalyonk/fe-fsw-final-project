@@ -26,14 +26,15 @@ const Navbar = () => {
     
         <div className='hidden p-4 md:flex gap-10 tracking-wider text-gray-600'>
             <Link href="/"className='hover:text-green-700'>Home</Link>
-            <Link href="http://localhost:3000/login"className='hover:text-green-700'>Boxing</Link>
+            <Link href="/"className='hover:text-green-700'>Booking</Link>
             <Link href="/"className='hover:text-green-700'>About</Link>
             <Link href="/"className='hover:text-green-700'>Service</Link>
 
         </div>
         <div className='p-4 flex gap-5'>
-        <Link href="http://localhost:3000/login"><button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '>Login</button></Link>
-            <button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '><AiOutlineShoppingCart/></button>
+        <Link href="/login"><button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '>Login</button></Link>
+        <Link href="/cart"><button className='hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white '><AiOutlineShoppingCart size={23}/></button></Link>
+            
         </div>
         {toggle ?(
               <AiOutlineClose onClick={()=>setToggle
@@ -53,7 +54,7 @@ const Navbar = () => {
             
             <div className='flex mx-auto gap-5 item-center'>
               <Link href="https://web.facebook.com/?_rdc=1&_rdr" target='_blank'><BsFacebook size={25} className='text-green-600 hover:-translate-y-1 duration-300' /></Link>
-            <Link href="https://web.facebook.com/?_rdc=1&_rdr" target='_blank'><AiFillInstagram size={25} className='text-green-600 hover:-translate-y-1 duration-300'/></Link>
+             <Link href="https://web.facebook.com/?_rdc=1&_rdr" target='_blank'><AiFillInstagram size={25} className='text-green-600 hover:-translate-y-1 duration-300'/></Link>
               <Link href="https://web.facebook.com/?_rdc=1&_rdr" target='_blank'><BsTwitter size={25} className='text-green-600 hover:-translate-y-1 duration-300'/></Link> 
               <Link href="https://web.facebook.com/?_rdc=1&_rdr" target='_blank'><IoLogoWhatsapp size={25} className='text-green-600 hover:-translate-y-1 duration-300'/></Link> 
            </div>
@@ -61,7 +62,7 @@ const Navbar = () => {
               <div className='bg-green-600 w-[170px] h-[1px]'></div>
             </div>
             <div className='p-4 mx-auto flex gap-5'>
-            <button className='md:hidden flex flex-col  border border-green-600 px-4 py-1 rounded-md text-green-600 bg-green-600 text-white bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600'>Login</button>
+            <Link href="/login"><button className='md:hidden flex flex-col  border border-green-600 px-4 py-1 rounded-md text-green-600 bg-green-600 text-white bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600'>Login</button></Link>
             <button className='duration-300 md:hidden flex flex-col  border border-green-600 px-6 py-1 rounded-md text-green-600 bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600'>cart</button>
             </div>
 
