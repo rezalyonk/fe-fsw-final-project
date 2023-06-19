@@ -1,0 +1,329 @@
+.monthYear {
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+}
+.month,
+.title {
+  width: 247px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.month {
+  width: 468px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.statusTiket {
+  position: relative;
+  line-height: 20px;
+}
+.status,
+.ticketStatus {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ticketStatus {
+  border-radius: 16px;
+  background-color: #73ca5c;
+  flex-direction: row;
+  padding: 4px 12px;
+}
+.status {
+  align-self: stretch;
+  flex-direction: column;
+  padding: 4px 0;
+  font-size: 14px;
+  color: #fff;
+}
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.asal,
+.iconWrapper,
+.tgl {
+  position: relative;
+}
+.asal {
+  font-size: 14px;
+  line-height: 20px;
+}
+.tgl {
+  line-height: 18px;
+  font-weight: 500;
+}
+.info,
+.keberangkatan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.keberangkatan {
+  flex: 1;
+  flex-direction: row;
+  gap: 8px;
+}
+.durasi,
+.flighticon {
+  align-self: stretch;
+  position: relative;
+}
+.durasi {
+  line-height: 18px;
+  font-weight: 500;
+}
+.flighticon {
+  max-width: 100%;
+  overflow: hidden;
+  height: 15.1px;
+  flex-shrink: 0;
+}
+.estimasi {
+  width: 151px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 17px;
+  text-align: center;
+  color: #3c3c3c;
+}
+.p {
+  margin: 0;
+}
+.tgl1 {
+  position: relative;
+  font-size: 12px;
+  line-height: 18px;
+}
+.destination,
+.infoestimasi {
+  display: flex;
+  flex-direction: row;
+}
+.destination {
+  flex: 1;
+  padding: 0 15.75px 0 0;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 14px;
+}
+.infoestimasi {
+  align-self: stretch;
+  border-bottom: 1px solid #d0d0d0;
+  padding: 16px 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.idNumber {
+  flex: 1;
+  position: relative;
+  line-height: 18px;
+}
+.label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+}
+.class {
+  flex: 1;
+  position: relative;
+  line-height: 18px;
+  z-index: 1;
+}
+.flight {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 0;
+  text-align: right;
+  font-size: 14px;
+  color: #189345;
+}
+.card1,
+.flight,
+.info2,
+.sectionContent {
+  align-self: stretch;
+  display: flex;
+}
+.info2 {
+  flex-direction: row;
+  padding: 8px 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.card1,
+.sectionContent {
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+.sectionContent {
+  border-radius: 8px;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+.card1 {
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  padding: 12px 16px;
+  justify-content: center;
+}
+.card1:hover {
+  gap: 12px;
+}
+.card2,
+.ticketStatus2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.card2 {
+  align-self: stretch;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  padding: 12px 16px;
+}
+.card1:hover,
+.card2:hover {
+  background-color: #409551;
+  padding: 3px;
+  box-sizing: border-box;
+}
+.ticketStatus2 {
+  border-radius: 16px;
+  background-color: red;
+  flex-direction: row;
+  padding: 4px 12px;
+}
+.status2 {
+  align-self: stretch;
+  padding: 4px 0;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #fff;
+}
+.month1,
+.status2,
+.ticketStatus3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.month1 {
+  width: 467px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 16px;
+}
+.ticketStatus3 {
+  border-radius: 16px;
+  background-color: #8a8a8a;
+  padding: 4px 12px;
+  align-items: flex-start;
+}
+.framecard {
+  flex: 1;
+  flex-direction: column;
+  gap: 42px;
+}
+.detailouter,
+.framecard,
+.frameinnder,
+.historypage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameinnder {
+  align-self: stretch;
+  overflow: hidden;
+  flex-direction: row;
+  padding: 0 261px 0 275px;
+}
+.detailouter,
+.historypage {
+  flex-direction: column;
+}
+.detailouter {
+  align-self: stretch;
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  overflow: hidden;
+  padding: 25px 0 0;
+}
+.historypage {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  color: #151515;
+  font-family: Poppins;
+}
+@media screen and (max-width: 1200px) {
+  .infoestimasi {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .framecard {
+    flex: unset;
+    align-self: stretch;
+  }
+  .frameinnder {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 960px) {
+  .infoestimasi {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frameinnder {
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .infoestimasi {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
