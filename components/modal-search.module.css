@@ -1,0 +1,143 @@
+.searchField,
+.searchInput {
+  display: flex;
+  justify-content: flex-start;
+}
+.searchInput {
+  border: 1px solid #8a8a8a;
+  font-family: Poppins;
+  font-size: 14px;
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: 4px;
+  flex-direction: row;
+  padding: 8px 8px 8px 16px;
+  align-items: center;
+}
+.searchField {
+  width: 340px;
+  flex-direction: column;
+  padding: 6px 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+.liveAreaIcon {
+  position: absolute;
+  height: 83.33%;
+  width: 83.33%;
+  top: 8.33%;
+  right: 8.33%;
+  bottom: 8.33%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.searchIcon {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header {
+  border-radius: 12px 12px 0 0;
+  background-color: #fff;
+  border-bottom: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  width: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 14px 16px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.delete,
+.title {
+  position: relative;
+  font-weight: 500;
+}
+.title {
+  flex: 1;
+  line-height: 24px;
+}
+.delete {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Poppins;
+  color: red;
+  text-align: center;
+}
+.button {
+  border-radius: 4px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.buttonbrand,
+.sectionHeader {
+  display: flex;
+  justify-content: flex-start;
+}
+.buttonbrand {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sectionHeader {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.section {
+  align-self: stretch;
+  background-color: #fff;
+  padding: 12px 16px;
+}
+.modalsearch,
+.placefull,
+.section,
+.sheetContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.placefull {
+  flex: 1;
+  background-color: #fff;
+  width: 400px;
+}
+.modalsearch,
+.sheetContent {
+  border-radius: 16px;
+}
+.sheetContent {
+  align-self: stretch;
+  overflow: hidden;
+}
+.modalsearch {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: left;
+  font-size: 16px;
+  color: #151515;
+  font-family: Poppins;
+}
