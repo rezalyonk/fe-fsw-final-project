@@ -1,180 +1,121 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./form-datapenumpang.module.css";
-import axios from 'axios';
 
-const FormRegister = () => {
+export default function TiketPesawatForm() {
+  const [formData, setFormData] = useState({
+    id_penerbangan: '',
+    nama_lengkap: '',
+    nama_keluarga: '',
+    nomor_telepon: '',
+    email: '',
+    kursi: '',
+    jumlah_penumpang: 0,
+  });
   const router = useRouter();
- const [formData, setFormData] = useState({
-  nama_lengkap: '',
-  alamat: '',
-  email: '',
-  nomor_telepon: ''
-});
 
-  const onMasukDiSiniClick = useCallback(() => {
-    router.push("/privacy");
-  }, [router]);
+ 
 
-  const handleChange = useCallback((e) => {
-    const { name, value, type, checked } = e.target;
 
-    if (name === 'password') {
-      setFormData((prevData) => ({
-        ...prevData,
-        password: value
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-      }));
-    }
-  }, []);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    // Lakukan sesuatu dengan data pemesanan
+    console.log(formData);
 
-    try {
-      // Make a POST request to the register API endpoint
-      const response = await axios.post('/api/datapenumpang', formData);
-      console.log(response.data); // Log the response data
-      // Handle the response as needed
-
-      // Redirect to the histori page
-      router.push('/rincian pembelian');
-    } catch (error) {
-      console.error(error);
-      // Handle the error
-    }
+    // Arahkan ke halaman berikutnya dan teruskan data formulir sebagai parameter query
+    router.push({
+      pathname: '/detailpenerbangan',
+      query: formData,
+    });
   };
 
   return (
-    <div  className={styles.frameParent}>
-      <div className={styles.card}>
-      
+  <div className={styles.container}>
+
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.masuk}>
-        <b className={styles.daftar}>Isi Data Penumpang</b>
+        <b>Isi Data Penumpang</b>
       </div>
-      <form className={styles.inner} onSubmit={handleSubmit}>
-      
-        <div className={styles.input}>
-          <div className={styles.username}>Nama Lengkap</div>
-          <div className={styles.usernameWrapper}>
-            <input
-              name="nama_lengkap" 
-              value={formData.nama_lengkap}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Nama Lengkap"
-              required
-            />
-          </div>
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Tanggal Lahir</div>
-          </div>
-          <div className={styles.alamatContainer}>
-            <input
-              name="tanggal lahir"
-              value={formData.tanggallahir}
-              onChange={handleChange}
-              className={styles.username1}
-              type="date"
-              placeholder="dd/mm/yy "
-            />
-          </div>
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Kewarganegaraan</div>
-          </div>
-          <input
-            name="Kewarganegaraan"
-            value={formData.kewarganegaraan}
-            onChange={handleChange}
-            className={styles.inputChild}
-            type="text"
-            placeholder="Contoh: indonesia"
-            required
-          />
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Alamat</div>
-          </div>
-          <div className={styles.alamatContainer}>
-            <input
-              name="alamat"
-              value={formData.alamat}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Alamat . "
-            />
-          </div>
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>KTP Paspor</div>
-          </div>
-          <input
-            name="KTP/Paspor"
-            value={formData.KTPPaspor}
-            onChange={handleChange}
-            className={styles.inputChild}
-            type="integer"
-            placeholder="Contoh: 27397108938979"
-            required
-          />
-        </div>
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Negara penerbit</div>
-          </div>
-          <input
-            name="negarapenerbit"
-            value={formData.negarapenerbit}
-            onChange={handleChange}
-            className={styles.inputChild}
-            type="text"
-            placeholder="Contoh: indonesia"
-            required
-          />
-        </div>
-        
-        <div className={styles.input}>
-          <div className={styles.masuk}>
-            <div className={styles.buatPassword}>Masa berlaku</div>
-          </div>
-          <input
-            name="masaberlaku"
-            value={formData.masaberlaku}
-            onChange={handleChange}
-            className={styles.inputChild}
-            type="date"
-            placeholder="dd/mm/yyyy"
-            required
-          />
-        </div>
-       
-        <div className={styles.buttonWrapper}>
-          <button className={styles.button} type="submit">
-            <div className={styles.terbitkan}>Simpan</div>
-          </button>
-        </div>
-        </form>
-      
-      <div className={styles.register}>
-        <p className={styles.sudahPunyaAkun}>Saya setuju dengan ketentuan yang berlaku : <span className={styles.masukDiSini} onClick={onMasukDiSiniClick}>privacy and policy</span></p>
-      </div>
-      </div>
-    </div>
-
-    
+  
+      <label className={styles.formlabel}>
+        ID Penerbangan:
+        <input className={styles.forminput}
+          type="text"
+          name="id_penerbangan"
+          value={formData.id_penerbangan}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Nama Lengkap:
+        <input className={styles.forminput}
+          type="text"
+          name="nama_lengkap"
+          value={formData.nama_lengkap}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Nama Keluarga:
+        <input className={styles.forminput}
+          type="text"
+          name="nama_keluarga"
+          value={formData.nama_keluarga}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Nomor Telepon:
+        <input className={styles.forminput}
+          type="text"
+          name="nomor_telepon"
+          value={formData.nomor_telepon}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Email:
+        <input className={styles.forminput}
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Kursi:
+        <input className={styles.forminput}
+          type="text"
+          name="kursi"
+          value={formData.kursi}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label className={styles.formlabel}>
+        Jumlah Penumpang:
+        <input className={styles.forminput}
+          type="number"
+          name="jumlah_penumpang"
+          value={formData.jumlah_penumpang}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <button className={styles.formbutton} type="submit">Pesan Tiket</button>
+    </form></div>
   );
-};
-
-export default FormRegister;
+}

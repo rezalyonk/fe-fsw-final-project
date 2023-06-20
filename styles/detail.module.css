@@ -1,36 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin-bottom: 16px;
-  }
+  padding: 10px 0px;
+  width: 518px;
+  height: 498px;
+  background: #FFFFFF;
+  border: 1px solid #8A8A8A;
   
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-  }
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   
-  .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 12px;
-  }
+  /* Inside auto layout */
   
-  .flightNumber {
-    font-weight: bold;
-  }
-  
-  .info {
-    justify-content: space-between;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .time {
-    margin-left: 8px;
-  }
-  
+  order: 0;
+  flex-grow: 0;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table td:first-child {
+  font-weight: bold;
+}
+
+
+.button {
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: white;
+  color: #4d2771;
+  border: 1px solid;
+  border-color: #4d2771;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #4d2771;
+  color: white;
+}
