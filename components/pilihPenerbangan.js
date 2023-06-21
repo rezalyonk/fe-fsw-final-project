@@ -3,8 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import Image from 'react-bootstrap/Image';
-import style from "./pilihPenerbangan..module.css"
+import style from "./pilihPenerbangan.module.css"
 
 function pilihPenerbangan() {
     return (
@@ -38,8 +37,6 @@ function pilihPenerbangan() {
                             </Accordion.Item>
                         </Accordion>
                     </div>
-
-
                     <div className="col-8">
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src="holder.js/100px180" />
