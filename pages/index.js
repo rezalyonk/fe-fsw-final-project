@@ -7,19 +7,19 @@ import MoreInfoModal from '@/components/MoreInfoModal'
 import Cta from '@/components/Cta'
 import Navbar from '@/components/Navbar'
 
-export default function Home (){
+export default function Home() {
   return (
     <div>
       <Head>
         <title>Fly Ticket</title>
       </Head>
-      <Navbar/>
-      <Hero/>
-      <Product/>
-      <Categorie/>
-      <MoreInfoModal/>
-      <Cta/>
-      <Footer/>
+      <Navbar />
+      <Hero />
+      <Product />
+      <Categorie />
+      <MoreInfoModal />
+      <Cta />
+      <Footer />
     </div>
   )
 }
