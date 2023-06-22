@@ -17,7 +17,7 @@ const FlightSearchForm = () => {
   const [seatClass, setSeatClass] = useState('');
 
   const onpilihTiket = useCallback(() => {
-    router.push("/pilihTiket");
+    router.push("/pilihpenerbangan");
   }, [router]);
 
   const handleSubmit = (e) => {
