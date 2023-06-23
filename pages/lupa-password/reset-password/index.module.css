@@ -1,0 +1,91 @@
+.gambargradasiIcon {
+  position: relative;
+  width: 719px;
+  height: 950px;
+  object-fit: cover;
+}
+.resetPassword1 {
+  flex: 1;
+  position: relative;
+  line-height: 36px;
+}
+.inputtoken {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.forminput {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.resetPassword,
+.wResetPassword {
+  display: flex;
+  justify-content: flex-start;
+}
+.wResetPassword {
+  align-self: stretch;
+  background-color: #fff;
+  overflow: hidden;
+  flex-direction: row;
+  padding: 0 0 0 1px;
+  align-items: center;
+  gap: 134px;
+}
+.resetPassword {
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 24px;
+  color: #000;
+  font-family: Poppins;
+}
+@media screen and (max-width: 1200px) {
+  .gambargradasiIcon {
+    display: none;
+    max-width: 50%;
+    height: auto;
+  }
+  .forminput {
+    flex: unset;
+    align-self: stretch;
+  }
+  .wResetPassword {
+    flex-direction: column;
+  }
+  .resetPassword {
+    padding-left: 45px;
+    padding-top: 55px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 960px) {
+  .forminput {
+    flex: unset;
+    align-self: stretch;
+  }
+  .wResetPassword {
+    flex-direction: column;
+  }
+  .resetPassword {
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .resetPassword {
+    gap: 10px;
+    padding-left: 55px;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+}

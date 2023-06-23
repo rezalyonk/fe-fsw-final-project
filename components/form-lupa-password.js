@@ -18,7 +18,7 @@ const FromLupaPassword = () => {
 
     try {
       // Make a POST request to the forgot password API endpoint
-      const response = await axios.post('/api/forgot-password', { email });
+      const response = await axios.post('/api/lupa-password', { email });
 
       // Display success message
       setSuccessMessage(response.data.message);
@@ -36,35 +36,30 @@ const FromLupaPassword = () => {
   useEffect(() => {
     if (successMessage) {
       // Redirect to reset password page after successful email sent
-      router.push('/reset-password');
+      router.push('/lupa-password/reset-password');
     }
   }, [successMessage]);
 
   return (
-    <form className={styles.frameParent} onSubmit={handleSubmit}>
-      <div className={styles.logoWrapper}>
-        <img className={styles.logoIcon} alt="" src="/logo@2x.png" />
-      </div>
+    <form className={styles.forminput}onSubmit={handleSubmit}>
       <div className={styles.inputemail}>
         <b className={styles.masukkanEmail}>Masukkan email</b>
       </div>
       <div className={styles.inner}>
         <div className={styles.form}>
           <div className={styles.email}>Email</div>
-          <div className={styles.input}>
-            <input
-              className={styles.contohJohndoegmailcom}
-              id="email" value={email} onChange={handleEmailChange} required
-              type="email"
-              placeholder="Contoh: johndoe@gmail.com"
-            />
-            <img className={styles.fisearchIcon} alt="" src="/fisearch.svg" />
-          </div>
+          <input
+            className={styles.input}
+            id="email"
+            value={email}
+            onChange={handleEmailChange} required
+            type="email"
+             placeholder="Contoh: johndoe@gmail.com"
+          />
         </div>
         <div className={styles.buttonWrapper} type="submit">
           <button className={styles.button}>
             <div className={styles.terbitkan}>Kirim</div>
-            <img className={styles.fiheartIcon} alt="" src="/fiheart.svg" />
           </button>
         </div>
       </div>
