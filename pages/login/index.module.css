@@ -1,4 +1,4 @@
-.frame23301 {
+.gambargradasiIcon {
   position: relative;
   width: 719px;
   height: 950px;
@@ -25,20 +25,19 @@
   align-items: flex-start;
 }
 @media screen and (max-width: 1200px) {
+  .gambargradasiIcon {
+    display: none;
+  }
   .wLogin {
     flex-direction: column;
   }
   .login {
     padding-left: 45px;
+    padding-top: 55px;
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 960px) {
-  .frame23301 {
-    display: none;
-    max-width: 50%;
-    height: auto;
-  }
   .wLogin {
     flex-direction: column;
   }
