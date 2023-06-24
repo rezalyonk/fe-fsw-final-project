@@ -1,8 +1,65 @@
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import styles from "./form-login.module.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 const FormLogin = () => {
   const router = useRouter();
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = useCallback((e) => {
+    const { name, value, type, checked } = e.target;
+  
+    if (name === 'password') {
+      setFormData((prevData) => ({
+        ...prevData,
+        password: value
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value
+      }));
+    }
+  
+    // Pemanggilan fungsi handleChange yang pertama
+    // dengan memanggil fungsi handleChange yang ada di useState
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  }, []);
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      // Lakukan proses login seperti sebelumnya
+      const response = await axios.post('/api/login', formData);
+      console.log(response.data); // Log the response data
+      // Handle the response as needed
+  
+      // Set isLoggedIn ke true dan simpan status login di session storage
+      setIsLoggedIn(true);
+      sessionStorage.setItem('isLoggedIn', 'true');
+  
+      // Redirect ke halaman landing page
+      router.push('/');
+    } catch (error) {
+      console.error(error);
+      // Handle the error
+      setErrorMessage('Incorrect email or password. Please try again.');
+    }
+  };
+  
 
   const onLupaKataSandiClick = useCallback(() => {
     router.push("/lupa-password");
@@ -11,6 +68,37 @@ const FormLogin = () => {
   const onDaftarDiSiniClick = useCallback(() => {
     router.push("/register");
   }, [router]);
+
+  const toggleShowPassword = useCallback(() => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+
+  useEffect(() => {
+    // Cek session storage saat komponen halaman login dimuat
+    const isLoggedInSession = sessionStorage.getItem('isLoggedIn');
+    if (isLoggedInSession === 'true') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      // Lakukan proses logout seperti sebelumnya
+
+      // Hapus status login dari session storage
+      sessionStorage.removeItem('isLoggedIn');
+      Cookies.remove('accessToken')
+
+      // Redirect ke halaman login
+      router.push('/login');
+    } catch (error) {
+      console.error(error);
+      // Handle error
+    }
+  };
 
   return (
     <div className={styles.formlogin}>
