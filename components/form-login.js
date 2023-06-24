@@ -1,7 +1,6 @@
-import { useCallback } from "react";
+import { useCallback,useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./form-login.module.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
@@ -44,15 +43,18 @@ const FormLogin = () => {
     try {
       // Lakukan proses login seperti sebelumnya
       const response = await axios.post('/api/login', formData);
-      console.log(response.data); // Log the response data
+       // Log the response data
+      console.log(response)
       // Handle the response as needed
-  
+      if (response.status == 200) {
+        setIsLoggedIn(true);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        Cookies.set('accessToken',response.data.data.accessToken)
+        // Redirect ke halaman landing page
+        router.push('/');
+      }
       // Set isLoggedIn ke true dan simpan status login di session storage
-      setIsLoggedIn(true);
-      sessionStorage.setItem('isLoggedIn', 'true');
-  
-      // Redirect ke halaman landing page
-      router.push('/');
+
     } catch (error) {
       console.error(error);
       // Handle the error
@@ -91,9 +93,8 @@ const FormLogin = () => {
       // Hapus status login dari session storage
       sessionStorage.removeItem('isLoggedIn');
       Cookies.remove('accessToken')
-
       // Redirect ke halaman login
-      router.push('/login');
+      router.push('/');
     } catch (error) {
       console.error(error);
       // Handle error
@@ -105,17 +106,26 @@ const FormLogin = () => {
       <div className={styles.masuk}>
         <b className={styles.masuk1}>Masuk</b>
       </div>
-      <div className={styles.inner}>
+      {isLoggedIn ? (
+        <div>
+          <p>You are logged in</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+      <form className={styles.inner} onSubmit={handleSubmit}>
         <div className={styles.input}>
           <div className={styles.emailnoTelepon}>Email/No Telepon</div>
-          <input
-            className={styles.inputChild}
-            type="email"
-            placeholder="Contoh: johndoe@gmail.com"
-            maxLength
-            minLength
-            required
-          />
+
+            <input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.inputChild}
+              type="email"
+              placeholder="Contoh: johndoe@gmail.com"
+              required
+            />
+
         </div>
         <div className={styles.input}>
           <div className={styles.textpassword}>
@@ -127,22 +137,23 @@ const FormLogin = () => {
               Lupa Kata Sandi
             </button>
           </div>
-          <input
-            className={styles.forminput}
-            type="password"
-            placeholder="Masukkan password"
-            maxLength
-            minLength
-            required
-          />
+            <input
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={styles.forminput}
+              type="password"
+              placeholder="Masukkan password"
+              require
+            />
         </div>
         <div className={styles.buttonWrapper}>
-          <button className={styles.button}>
+          <button className={styles.button} type="submit">
             <div className={styles.terbitkan}>Masuk</div>
-            <img className={styles.fiheartIcon} alt="" src="/fiheart.svg" />
           </button>
         </div>
-      </div>
+        </form>
+      )}
       <div className={styles.register}>
         <div className={styles.belumPunyaAkun}>Belum punya akun?</div>
         <button className={styles.daftarDiSini} onClick={onDaftarDiSiniClick}>
