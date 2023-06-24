@@ -1,15 +1,15 @@
-.frame23301 {
+.gambargradasiIcon {
   position: relative;
   width: 719px;
   height: 950px;
   object-fit: cover;
 }
 .lupaPassword,
-.wLogin {
+.wLupaPassword {
   display: flex;
   justify-content: flex-start;
 }
-.wLogin {
+.wLupaPassword {
   align-self: stretch;
   background-color: #fff;
   overflow: hidden;
@@ -25,21 +25,20 @@
   align-items: flex-start;
 }
 @media screen and (max-width: 1200px) {
-  .wLogin {
+  .gambargradasiIcon {
+    display: none;
+  }
+  .wLupaPassword {
     flex-direction: column;
   }
   .lupaPassword {
     padding-left: 45px;
+    padding-top: 55px;
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 960px) {
-  .frame23301 {
-    display: none;
-    max-width: 50%;
-    height: auto;
-  }
-  .wLogin {
+  .wLupaPassword {
     flex-direction: column;
   }
   .lupaPassword {
@@ -48,6 +47,9 @@
   }
 }
 @media screen and (max-width: 420px) {
+  .gambargradasiIcon {
+    display: none;
+  }
   .lupaPassword {
     gap: 10px;
     padding-left: 75px;

@@ -1,0 +1,282 @@
+.flightsearchform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0px;
+    gap: 10px;
+    position: absolute;
+    width: 968px;
+    height: 298px;
+    left: 236px;
+    top: 100px;
+    background: #fff;
+    border: 1px solid  #D0D0D0;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.15);
+    border-radius: 12px;
+  }
+  
+  .pilih {
+    width: 459px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 34px;
+  }
+
+  .tx {
+    display: flex;
+    padding: 20px 5px;
+    gap: 10px;
+    width: 100%;
+    height: 61px;
+    border-radius: 10px;
+    flex: none;
+    flex-grow: 0;
+    margin: 0 auto;
+  }
+
+  .formgrouptextkr {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #8A8A8A;
+    width: 343px;
+    height: 30px;
+    display: flex; 
+    margin-left: 18px;
+    
+  }
+
+  .iconpl1 {
+    margin-top: 4px;
+    width: 25px;
+    height: 25px;
+  }
+
+.f {
+  margin-left: 11px;
+  margin-top: 6px;
+  height: 20px;
+}
+
+.inputto {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  width: 248px;
+}
+
+.inputfrom {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  width: 263px;
+}
+  
+  .iconrl {
+    margin-left: 80px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .formgrouptextkn {
+    font-family: 'Poppins';
+    color: #8A8A8A;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    width: 310px;
+    height: 30px;
+    display: flex; 
+    margin-left: 14px;
+  }
+
+  .iconpl2 {
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .t {
+    margin-left: 11px;
+    margin-top: 6px;
+    height: 20px;
+  }
+  
+  .dtpl {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 5px;
+    gap: 10px;
+    width: 100%;
+    height: 109px;
+    flex: none;
+    flex-grow: 0;
+    
+    margin: 0 auto;
+  }
+
+  .dt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 5px;
+    gap: 30px;
+    width: 447px;
+    height: 65px;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: #8A8A8A;
+    font-family: 'Poppins';
+    font-style: normal;
+    margin-left: 10px;
+    margin-right: 40px;
+  }
+
+  .formdtkr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    margin-left: -25px;
+  }
+
+  .d {
+    margin-left: -20px;
+  }
+
+  .formdtkn {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    margin-left: -20px;
+  }
+
+  .pl {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 5px;
+    gap: 8px;
+    width: 447px;
+    height: 87px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: #8A8A8A;
+    font-family: 'Poppins';
+    font-style: normal;
+  }
+
+  .formpassenger {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .formseatclass {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 24px;
+    gap: 4px;
+    width: 968px;
+    height: 48px;
+    background: rgb(22, 163, 74);
+    border-radius: 0px 0px 12px 12px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: -5px;
+    margin-left: -1px;
+  }
+
+  .icondate {
+    width: 35px;
+    height: 35px;
+    color: #8A8A8A;
+  }
+
+  .iconps {
+    width: 35px;
+    height: 35px;
+    color: #8A8A8A;
+  }
+
+ .check[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  .lb {
+    cursor: pointer;
+    width: 40px;
+    height: 24px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    bottom: 13px;
+    right: 20px;
+  }
+  
+  .lb:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  .check:checked + label {
+    background: rgb(22, 163, 74);
+  }
+  
+  .check:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  .lb:active:after {
+    width: 130px;
+  }
+  
+  
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
