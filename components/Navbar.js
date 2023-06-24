@@ -26,9 +26,9 @@ const Navbar = () => {
 
         <div className='hidden p-4 md:flex gap-10 tracking-wider text-gray-600'>
           <Link href="/" className='hover:text-green-700'>Home</Link>
-          <Link href="/booking" className='hover:text-green-700'>Booking</Link>
-          <Link href="/" className='hover:text-green-700'>About</Link>
-          <Link href="/" className='hover:text-green-700'>Service</Link>
+          <Link href="/pilihtiket" className='hover:text-green-700'>Booking</Link>
+          <Link href="/about" className='hover:text-green-700'>About</Link>
+          <Link href="/service" className='hover:text-green-700'>Service</Link>
 
         </div>
         <div className='p-4 flex gap-5'>

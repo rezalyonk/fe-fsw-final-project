@@ -27,10 +27,7 @@ export default function TiketPesawatForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lakukan sesuatu dengan data pemesanan
     console.log(formData);
-
-    // Arahkan ke halaman berikutnya dan teruskan data formulir sebagai parameter query
     router.push({
       pathname: '/detailpenerbangan',
       query: formData,
