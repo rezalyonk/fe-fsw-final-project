@@ -8,6 +8,7 @@ import styles from '../pages/booking/index.module.css';
 import classNames from 'classnames';
 import axios from 'axios';
 
+
 const FlightSearchForm = () => {
   const router = useRouter();
   const [from, setFrom] = useState('');
@@ -16,9 +17,10 @@ const FlightSearchForm = () => {
   const [returnDate, setReturnDate] = useState('');
   const [passenger, setPassenger] = useState('');
   const [seatClass, setSeatClass] = useState('');
+  const [responseData, setResponseData] = useState('');
 
   const onpilihTiket = useCallback(() => {
-    // router.push("/pilihpenerbangan");
+    // router.push("/pilihtiket");
   }, [router]);
 
   const handleSubmit = async (e) => {
@@ -43,6 +45,7 @@ const FlightSearchForm = () => {
     try {
       const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${from}/${to}/harga-terendah`);
       console.log('API response:', response.data);
+      setResponseData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -59,6 +62,7 @@ const FlightSearchForm = () => {
 
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className={styles.flightsearchform}>
       <h1 className={styles.pilih}>Pilih Jadwal Penerbangan spesial di <span className='text-green-600'>Tiketku!</span></h1>
       <div className={styles.tx}>
@@ -147,6 +151,7 @@ const FlightSearchForm = () => {
       </div>
       <button type="submit" className={styles.btn} onClick={onpilihTiket}>Cari Penerbangan</button>
     </form>
+    </div>
   );
 };
 
