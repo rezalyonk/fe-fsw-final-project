@@ -4,13 +4,12 @@ import Cookies from 'js-cookie';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const response = await axios.post('https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/login', req.body);
-      
-      // Set cookie with the access token
-      Cookies.set('access_token', response.data.access_token);
-      
-      // Proses response dari server API
-      // ...
+      const { email, password } = req.body;
+
+      const response = await axios.post('https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/login', {
+        email,
+        password,
+      });
       res.status(200).json(response.data);
     } catch (error) {
       console.error(error);

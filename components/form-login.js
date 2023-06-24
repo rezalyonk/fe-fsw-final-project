@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./form-login.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const FormLogin = () => {
   const router = useRouter();
@@ -43,15 +44,18 @@ const FormLogin = () => {
     try {
       // Lakukan proses login seperti sebelumnya
       const response = await axios.post('/api/login', formData);
-      console.log(response.data); // Log the response data
+       // Log the response data
+      console.log(response)
       // Handle the response as needed
-  
+      if (response.status == 200) {
+        setIsLoggedIn(true);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        Cookies.set('accessToken',response.data.data.accessToken)
+        // Redirect ke halaman landing page
+        router.push('/');
+      }
       // Set isLoggedIn ke true dan simpan status login di session storage
-      setIsLoggedIn(true);
-      sessionStorage.setItem('isLoggedIn', 'true');
-  
-      // Redirect ke halaman landing page
-      router.push('/');
+
     } catch (error) {
       console.error(error);
       // Handle the error
@@ -89,6 +93,7 @@ const FormLogin = () => {
 
       // Hapus status login dari session storage
       sessionStorage.removeItem('isLoggedIn');
+      Cookies.remove('accessToken')
 
       // Redirect ke halaman login
       router.push('/login');
