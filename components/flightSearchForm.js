@@ -6,6 +6,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { RiWheelchairFill } from "react-icons/ri";
 import styles from '../pages/booking/index.module.css';
 import classNames from 'classnames';
+import axios from 'axios';
 
 const FlightSearchForm = () => {
   const router = useRouter();
@@ -17,19 +18,34 @@ const FlightSearchForm = () => {
   const [seatClass, setSeatClass] = useState('');
 
   const onpilihTiket = useCallback(() => {
-    router.push("/pilihpenerbangan");
+    // router.push("/pilihpenerbangan");
   }, [router]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formatDate = (inputDate) => {
+      const dateObj = new Date(inputDate);
+      const day = String(dateObj.getDate()).padStart(2, '0');
+      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const year = String(dateObj.getFullYear());
+      return `${day}-${month}-${year}`;
+    };
 
     // Lakukan sesuatu dengan data pencarian
     console.log('From:', from);
     console.log('To:', to);
-    console.log('Departure Date:', departureDate);
+    console.log('Departure Date:', formatDate(departureDate));
     console.log('Return Date:', returnDate);
     console.log('Passenger:', passenger);
     console.log('Seat Class:', seatClass);
+
+    try {
+      const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${from}/${to}/harga-terendah`);
+      console.log('API response:', response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
 
     // Reset form setelah submit
     setFrom('');
@@ -38,6 +54,7 @@ const FlightSearchForm = () => {
     setReturnDate('');
     setPassenger('');
     setSeatClass('');
+
   };
 
 
@@ -97,7 +114,7 @@ const FlightSearchForm = () => {
           </div>
           <div className={styles.box}>
             <input className={styles.check} type="checkbox" id="switch" />
-            <label className={styles.lb} for="switch"></label>
+            <label className={styles.lb} htmlFor="switch"></label>
           </div>
         </div>
         <div className={styles.pl}>
