@@ -7,6 +7,9 @@ import { RiWheelchairFill } from "react-icons/ri";
 import styles from '../pages/booking/index.module.css';
 import classNames from 'classnames';
 import axios from 'axios';
+import { CiCircleChevDown } from "react-icons/ci";
+import { RiSuitcase2Line } from "react-icons/ri";
+import style from './flightSearchForm.module.css';
 
 
 const FlightSearchForm = () => {
@@ -44,7 +47,7 @@ const FlightSearchForm = () => {
 
     try {
       const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${from}/${to}/harga-terendah`);
-      console.log('API response:', response.data);
+      // console.log('API response:', response.data);
       setResponseData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -58,6 +61,7 @@ const FlightSearchForm = () => {
     setPassenger('');
     setSeatClass('');
 
+    console.log(responseData)
   };
 
 
@@ -151,6 +155,38 @@ const FlightSearchForm = () => {
       </div>
       <button type="submit" className={styles.btn} onClick={onpilihTiket}>Cari Penerbangan</button>
     </form>
+    {responseData.success && (
+      <div className={style.frm}  >
+        {responseData.data.map((flight, index) => (
+          <div key={index}>
+            <div className={style.airline}>
+              <img className={style.iconthumbnail} src="/Thumbnail.png" alt="Thumbnail" />
+              <h1 className={style.testh1}>{flight.airline.nama_maskapai} - {flight.airline.tipe_maskapai}</h1>
+              <CiCircleChevDown className={style.ccld} />
+            </div>
+            <div className={style.info}>
+              <div className={style.br}>
+                <p className={style.p1}>{flight.jam_berangkat}</p>
+                <p className={style.p2}>{flight.bandaraAwal.kota}</p>
+              </div>
+              <div className={style.br}>
+                <p className={style.p1}>1H 30m</p>
+                <p className={style.p2}>Direct</p>
+              </div>
+              <div className={style.br}>
+                <p className={style.p1}>{flight.jam_kedatangan}</p>
+                <p className={style.p2}>{flight.bandaraTujuan.kota}</p>
+              </div>
+                <RiSuitcase2Line className={style.kpr}/>
+                <div className={style.hrg}>
+                    <p className={style.idr}>Rp. {flight.airline.harga_tiket}</p>
+                    <button type="submit" className={style.plh}>Pilih</button>
+                </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
     </div>
   );
 };
