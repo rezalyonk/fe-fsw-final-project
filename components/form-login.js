@@ -1,7 +1,6 @@
 import { useCallback,useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./form-login.module.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
@@ -94,9 +93,8 @@ const FormLogin = () => {
       // Hapus status login dari session storage
       sessionStorage.removeItem('isLoggedIn');
       Cookies.remove('accessToken')
-
       // Redirect ke halaman login
-      router.push('/login');
+      router.push('/');
     } catch (error) {
       console.error(error);
       // Handle error
@@ -104,10 +102,7 @@ const FormLogin = () => {
   };
 
   return (
-    <div className={styles.frameParent}>
-      <div className={styles.logoWrapper}>
-        <img className={styles.logoIcon} alt="" src="/logo@2x.png" />
-      </div>
+    <div className={styles.formlogin}>
       <div className={styles.masuk}>
         <b className={styles.masuk1}>Masuk</b>
       </div>
@@ -118,22 +113,19 @@ const FormLogin = () => {
         </div>
       ) : (
       <form className={styles.inner} onSubmit={handleSubmit}>
-      
-      
         <div className={styles.input}>
           <div className={styles.emailnoTelepon}>Email/No Telepon</div>
-          <div className={styles.pswParent}>
+
             <input
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={styles.psw}
+              className={styles.inputChild}
               type="email"
               placeholder="Contoh: johndoe@gmail.com"
               required
             />
-            <img className={styles.fisearchIcon} alt="" src="/fisearch.svg" />
-          </div>
+
         </div>
         <div className={styles.input}>
           <div className={styles.textpassword}>
@@ -145,33 +137,22 @@ const FormLogin = () => {
               Lupa Kata Sandi
             </button>
           </div>
-          <div className={styles.forminput}>
             <input
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className={styles.psw}
-              type={showPassword ? "text" : "password"}
+              className={styles.forminput}
+              type="password"
               placeholder="Masukkan password"
-              maxLength={12}
               require
             />
-            <button
-              className={styles.showPasswordButton}
-              onClick={toggleShowPassword}
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          </div>
         </div>
         <div className={styles.buttonWrapper}>
           <button className={styles.button} type="submit">
             <div className={styles.terbitkan}>Masuk</div>
-            <img className={styles.fiheartIcon} alt="" src="/fiheart.svg" />
           </button>
         </div>
         </form>
-      
       )}
       <div className={styles.register}>
         <div className={styles.belumPunyaAkun}>Belum punya akun?</div>

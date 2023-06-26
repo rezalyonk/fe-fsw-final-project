@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import { serialize } from 'cookie';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
