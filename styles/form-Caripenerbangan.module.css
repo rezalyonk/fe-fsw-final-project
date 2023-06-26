@@ -2,3 +2,12 @@
     height: 100px;
     color: aqua;
 }
+
+.H6s {
+    margin-bottom: 4%;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border: 2px;
+    border-style: solid;
+}
