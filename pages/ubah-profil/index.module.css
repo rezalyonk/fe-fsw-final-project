@@ -1,0 +1,234 @@
+.textPenumpang,
+.ubahDataProfil {
+  position: relative;
+  line-height: 30px;
+}
+.textPenumpang {
+  flex: 1;
+  line-height: 24px;
+  font-weight: 500;
+}
+.label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 0;
+}
+.listItem {
+  align-self: stretch;
+  background-color: #16a34a;
+  height: 40px;
+  flex-direction: row;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.inputField,
+.listItem,
+.username,
+.username1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.username1 {
+  flex-direction: row;
+  align-items: center;
+}
+.inputField,
+.username {
+  align-self: stretch;
+}
+.inputField {
+  border: 1px solid #d0d0d0;
+  font-weight: 500;
+  font-family: Poppins;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+}
+.username {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.lastName {
+  position: relative;
+  line-height: 20px;
+}
+.inputField2 {
+  border: 1px solid #d0d0d0;
+  font-weight: 500;
+  font-family: Poppins;
+  font-size: 16px;
+  background-color: #fff;
+  align-self: stretch;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info1 {
+  padding: 16px;
+  gap: 12px;
+  font-size: 14px;
+  color: black;
+}
+.data,
+.info,
+.info1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.data {
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #fff;
+}
+.info {
+  padding: 16px;
+  gap: 16px;
+}
+.pilih {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: Poppins;
+  color: #fff;
+  text-align: center;
+}
+.brandButton,
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brandButton {
+  cursor: pointer;
+  border: 0;
+  padding: 12px 0;
+  background-color: #16803d;
+  border-radius: 12px;
+  width: 150px;
+  overflow: hidden;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.brandButton:hover {
+  background-color: #14552c;
+}
+.button {
+  align-self: stretch;
+  flex-direction: column;
+}
+.wrapperContainer {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.card1,
+.sectionPemesan,
+.wrapperContainer {
+  display: flex;
+  flex-direction: column;
+}
+.card1 {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  padding: 24px 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.sectionPemesan {
+  flex: 1;
+  padding: 6px 16px;
+  align-items: center;
+  justify-content: center;
+}
+.akun,
+.akunParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.akunParent {
+  align-self: stretch;
+  overflow: hidden;
+  flex-direction: row;
+  padding: 48px 228px 0 276px;
+  gap: 10px;
+}
+.akun {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: column;
+  padding: 84px 0 172px;
+  box-sizing: border-box;
+  gap: 2px;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Poppins;
+}
+@media screen and (max-width: 960px) {
+  .akun,
+  .akunParent {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  .akun {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: #72c47c;
+  color: #ffffff;
+}
+
+.error {
+  background-color: #ff5252;
+  color: #ffffff;
+}
+@media screen and (max-width: 420px) {
+  .akun {
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+}

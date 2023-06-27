@@ -6,7 +6,7 @@ export default async function handler(req, res) {
       const { username, password, nama_lengkap, alamat, email, nomor_telepon } = req.body;
 
       // Kirim data ke endpoint register
-      const response = await axios.post('https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/register', {
+      const response = await axios.post('https://mang-eak-production.up.railway.app/v1/api/register', {
         username,
         password,
         nama_lengkap,
