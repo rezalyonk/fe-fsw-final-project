@@ -70,7 +70,7 @@ const FlightSearchForm = () => {
     console.log('Seat Class:', seatClass);
 
     try {
-      const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${formattedFromWithPercent20}/${formattedToWithPercent20}/harga-terendah`);
+      const response = await axios.get(`https://mang-eak-production.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${formattedFromWithPercent20}/${formattedToWithPercent20}/harga-terendah`);
       // console.log('API response:', response.data);
       setResponseData(response.data);
     } catch (error) {
