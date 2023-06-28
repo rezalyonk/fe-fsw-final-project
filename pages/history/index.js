@@ -48,7 +48,9 @@ const HistoryPage1 = () => {
     return <p>Mengambil data histori pemesanan...</p>;
   }
 
-  const filteredHistory = historyData.filter((order) => order.id.kode_booking);
+  const filteredHistory = historyData.filter(
+    (order) => order.order.kode_booking
+  );
 
   if (filteredHistory.length === 0) {
     return (
@@ -110,15 +112,15 @@ const HistoryPage1 = () => {
                     <div className={styles.status}>
                       <button
                         className={`${styles.ticketStatus} ${
-                          order.id.status_pembayaran === "unpaid"
+                          order.order.status_pembayaran === "unpaid"
                             ? styles.unpaidStatus
-                            : order.id.status_pembayaran === "paid"
+                            : order.order.status_pembayaran === "paid"
                             ? styles.paidStatus
                             : styles.canceledStatus
                         }`}
                       >
                         <div className={styles.statusTiket}>
-                          {order.id.status_pembayaran}
+                          {order.order.status_pembayaran}
                         </div>
                       </button>
                     </div>
@@ -187,7 +189,9 @@ const HistoryPage1 = () => {
                             <p className={styles.p}>
                               <b>{`Booking Code: `}</b>
                             </p>
-                            <p className={styles.p}>{order.id.kode_booking}</p>
+                            <p className={styles.p}>
+                              {order.order.kode_booking}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -207,15 +211,16 @@ const HistoryPage1 = () => {
                   <div className={styles.detailStatus}>
                     <b className={styles.detil}>Detail Pesanan</b>
                     <div className={styles.ticketStatus3}>
-                      <div className={`${styles.ticketStatus} ${
-                          selectedOrder.id.status_pembayaran === "unpaid"
+                      <div
+                        className={`${styles.ticketStatus} ${
+                          selectedOrder.order.status_pembayaran === "unpaid"
                             ? styles.unpaidStatus
-                            : order.id.status_pembayaran === "paid"
+                            : order.order.status_pembayaran === "paid"
                             ? styles.paidStatus
                             : styles.canceledStatus
                         }`}
                       >
-                        {selectedOrder.id.status_pembayaran}
+                        {selectedOrder.order.status_pembayaran}
                       </div>
                     </div>
                   </div>
@@ -226,7 +231,7 @@ const HistoryPage1 = () => {
                         <b className={styles.b}>{` `}</b>
                       </span>
                       <b className={styles.b}>
-                        <span>{selectedOrder.id.kode_booking}</span>
+                        <span>{selectedOrder.order.kode_booking}</span>
                       </b>
                     </div>
                   </div>
@@ -236,11 +241,11 @@ const HistoryPage1 = () => {
                     <div className={styles.jam6}>
                       <p className={styles.p}>
                         <b className={styles.b1}>
-                          {selectedOrder.id.jam_berangkat}
+                          {selectedOrder.order.jam_berangkat}
                         </b>
                       </p>
                       <p className={styles.maret20233}>
-                        {selectedOrder.id.tanggal_berangkat}
+                        {selectedOrder.order.tanggal_berangkat}
                       </p>
                     </div>
                     <div className={styles.plane}>
@@ -321,7 +326,8 @@ const HistoryPage1 = () => {
                           <p className={styles.penumpang1MrHarryPotter}>
                             <span>
                               <span className={styles.penumpang1Mr}>
-                                Nama Lengkap : {selectedOrder.id.nama_lengkap}
+                                Nama Lengkap :{" "}
+                                {selectedOrder.order.nama_lengkap}
                               </span>
                             </span>
                           </p>
@@ -338,10 +344,10 @@ const HistoryPage1 = () => {
                     </div>
                     <div className={styles.tujuan}>
                       <p className={styles.p}>
-                        <b>{selectedOrder.id.jam_kedatangan}</b>
+                        <b>{selectedOrder.order.jam_kedatangan}</b>
                       </p>
                       <p className={styles.p}>
-                        {selectedOrder.id.tanggal_kedatangan}
+                        {selectedOrder.order.tanggal_kedatangan}
                       </p>
                     </div>
                   </div>
@@ -376,7 +382,7 @@ const HistoryPage1 = () => {
                     </div>
                     <div className={styles.suffix}>
                       <div className={styles.tujuan}>
-                        {selectedOrder.id.jumlah_penumpang}
+                        {selectedOrder.order.jumlah_penumpang}
                       </div>
                     </div>
                   </div>
