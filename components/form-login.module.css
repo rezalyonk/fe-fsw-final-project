@@ -209,3 +209,8 @@
     flex-direction: column;
   }
 }
+.errorMessage {
+  color: white;
+  background-color: red;
+  padding: 10px;
+}

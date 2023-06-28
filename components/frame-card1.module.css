@@ -1,0 +1,390 @@
+.monthYear {
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+}
+.title {
+  width: 247px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card1:hover,
+.month {
+  box-sizing: border-box;
+}
+.month {
+  width: 468px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+.statusTiket {
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+}
+.status,
+.ticketStatus {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ticketStatus {
+  cursor: pointer;
+  border: 0;
+  padding: 4px 12px;
+  background-color: #73ca5c;
+  border-radius: 16px;
+  flex-direction: row;
+}
+.status {
+  align-self: stretch;
+  flex-direction: column;
+  padding: 4px 0;
+}
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.asal,
+.iconWrapper,
+.tgl {
+  position: relative;
+}
+.asal {
+  font-size: 14px;
+  line-height: 20px;
+}
+.tgl {
+  line-height: 18px;
+  font-weight: 500;
+}
+.durasi,
+.info1,
+.keberangkatan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.durasi,
+.keberangkatan {
+  width: 134.67px;
+  flex-direction: row;
+  gap: 8px;
+}
+.durasi {
+  width: 75.67px;
+  justify-content: center;
+  gap: 1px;
+}
+.flighticon {
+  position: relative;
+  width: 94.33px;
+  height: 15.1px;
+}
+.durasiParent,
+.estimasi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.durasiParent {
+  gap: 18px;
+}
+.estimasi {
+  flex: 1;
+  text-align: center;
+  color: #3c3c3c;
+}
+.tujuan {
+  position: relative;
+  line-height: 20px;
+}
+.p {
+  margin: 0;
+}
+.tgl1 {
+  position: relative;
+  font-size: 12px;
+  line-height: 18px;
+}
+.destination,
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.destination {
+  width: 134.67px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+.info {
+  align-self: stretch;
+  border-bottom: 1px solid #d0d0d0;
+  padding: 16px 0;
+  align-items: center;
+  gap: 16px;
+}
+.idNumber {
+  flex: 1;
+  position: relative;
+  line-height: 18px;
+}
+.label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1;
+}
+.flight {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 0;
+  text-align: right;
+  font-size: 14px;
+  color: #189345;
+}
+.card1,
+.info3,
+.sectionContent {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.info3 {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0;
+  align-items: flex-end;
+  gap: 8px;
+}
+.card1,
+.sectionContent {
+  flex-direction: column;
+}
+.sectionContent {
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.card1 {
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  padding: 12px 16px;
+}
+.card1:hover {
+  border: 1px solid rgba(22, 163, 74, 0.5);
+}
+.card1,
+.durasi1,
+.status1,
+.ticketStatus1 {
+  display: flex;
+  align-items: flex-start;
+}
+.ticketStatus1 {
+  border-radius: 16px;
+  background-color: red;
+  flex-direction: row;
+  padding: 4px 12px;
+  justify-content: flex-start;
+}
+.durasi1,
+.status1 {
+  align-self: stretch;
+}
+.status1 {
+  flex-direction: column;
+  padding: 4px 0;
+  justify-content: flex-start;
+  font-size: 14px;
+  color: #fff;
+}
+.durasi1 {
+  flex-direction: row;
+  justify-content: center;
+  gap: 1px;
+}
+.flighticon1 {
+  position: relative;
+  width: 92.17px;
+  height: 15.1px;
+}
+.estimasi1,
+.framecard,
+.ticketStatus2 {
+  display: flex;
+  justify-content: flex-start;
+}
+.estimasi1 {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  color: #3c3c3c;
+}
+.framecard,
+.ticketStatus2 {
+  align-items: flex-start;
+}
+.ticketStatus2 {
+  border-radius: 16px;
+  background-color: #8a8a8a;
+  flex-direction: row;
+  padding: 4px 12px;
+}
+.framecard {
+  flex: 1;
+  flex-direction: column;
+  gap: 42px;
+  text-align: left;
+  font-size: 12px;
+  color: #151515;
+  font-family: Poppins;
+}
+@media screen and (max-width: 1200px) {
+  .info {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .framecard {
+    flex: unset;
+    align-self: stretch;
+  }
+}
+@media screen and (max-width: 960px) {
+  .info {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 420px) {
+  .flighticon {
+    max-width: 50%;
+    height: auto;
+  }
+  .info {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .flighticon1 {
+    max-width: 50%;
+    height: auto;
+  }
+}
+
+.illustrationCartShoppingLi {
+  position: relative;
+  width: 204px;
+  height: 209px;
+  object-fit: cover;
+}
+.oopsRiwayatPesanan {
+  margin: 0;
+  color: #0db44a;
+}
+.andaBelumMelakukan {
+  margin: 0;
+  color: #000;
+}
+.oopsRiwayatPesananContainer {
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+}
+.oopsRiwayatPesananKosongWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 10px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.illustrationCartShoppingLiParent {
+  align-self: stretch;
+  align-items: center;
+  gap: 17px;
+}
+.frameParent,
+.historyPage,
+.illustrationCartShoppingLiParent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.frameParent {
+  align-self: stretch;
+  background-color: #fff;
+  overflow: hidden;
+  align-items: center;
+  gap: 17px;
+}
+.historyPage {
+  position: relative;
+  width: 100%;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 14px;
+  color: #0db44a;
+  font-family: Poppins;
+}
+@media screen and (max-width: 960px) {
+  .illustrationCartShoppingLi {
+    max-width: 50%;
+    height: auto;
+  }
+  .frameParent {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width:961px) {
+  .frameParent {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    padding-left: 275px;
+  }
+}
