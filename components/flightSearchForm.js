@@ -1,4 +1,4 @@
-import React, { use, useCallback, useState } from 'react';
+import React, { use, useCallback, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { MdFlightTakeoff } from "react-icons/md";
 import { TbArrowsRightLeft } from "react-icons/tb";
@@ -37,16 +37,40 @@ const FlightSearchForm = () => {
       return `${day}-${month}-${year}`;
     };
 
+    const capitalizeSecondWord = (string) => {
+      const words = string.split(' ');
+      if (words.length >= 2) {
+        const capitalizedWords = words.map((word, index) => {
+          if (index === 1) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+          }
+          return word;
+        });
+        return capitalizedWords.join(' ');
+      }
+      return string;
+    };
+
+    const addPercent20ToSpaces = (string) => {
+      return string.replace(/ /g, '%20');
+    };
+
+    const formattedFrom = capitalizeSecondWord(from);
+    const formattedTo = capitalizeSecondWord(to);
+
+    const formattedFromWithPercent20 = addPercent20ToSpaces(formattedFrom);
+    const formattedToWithPercent20 = addPercent20ToSpaces(formattedTo);
+
     // Lakukan sesuatu dengan data pencarian
-    console.log('From:', from);
-    console.log('To:', to);
+    console.log('From:', formattedFromWithPercent20);
+    console.log('To:', formattedToWithPercent20);
     console.log('Departure Date:', formatDate(departureDate));
     console.log('Return Date:', returnDate);
     console.log('Passenger:', passenger);
     console.log('Seat Class:', seatClass);
 
     try {
-      const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${from}/${to}/harga-terendah`);
+      const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${formattedFromWithPercent20}/${formattedToWithPercent20}/harga-terendah`);
       // console.log('API response:', response.data);
       setResponseData(response.data);
     } catch (error) {
@@ -63,6 +87,20 @@ const FlightSearchForm = () => {
 
     console.log(responseData)
   };
+
+  useEffect(() => {
+    // Auto capitalize first letter of 'from' input
+    if (from) {
+      setFrom(from.charAt(0).toUpperCase() + from.slice(1));
+    }
+  }, [from]);
+
+  useEffect(() => {
+    // Auto capitalize first letter of 'to' input
+    if (to) {
+      setTo(to.charAt(0).toUpperCase() + to.slice(1));
+    }
+  }, [to]);
 
 
   return (
