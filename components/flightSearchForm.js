@@ -1,4 +1,4 @@
-import React, { use, useCallback, useState, useEffect } from 'react';
+import React, { use, useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import { MdFlightTakeoff } from "react-icons/md";
 import { TbArrowsRightLeft } from "react-icons/tb";
@@ -6,11 +6,6 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { RiWheelchairFill } from "react-icons/ri";
 import styles from '../pages/booking/index.module.css';
 import classNames from 'classnames';
-import axios from 'axios';
-import { CiCircleChevDown } from "react-icons/ci";
-import { RiSuitcase2Line } from "react-icons/ri";
-import style from './flightSearchForm.module.css';
-
 
 const FlightSearchForm = () => {
   const router = useRouter();
@@ -20,62 +15,21 @@ const FlightSearchForm = () => {
   const [returnDate, setReturnDate] = useState('');
   const [passenger, setPassenger] = useState('');
   const [seatClass, setSeatClass] = useState('');
-  const [responseData, setResponseData] = useState('');
 
   const onpilihTiket = useCallback(() => {
-    // router.push("/pilihtiket");
+    router.push("/pilihpenerbangan");
   }, [router]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formatDate = (inputDate) => {
-      const dateObj = new Date(inputDate);
-      const day = String(dateObj.getDate()).padStart(2, '0');
-      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-      const year = String(dateObj.getFullYear());
-      return `${day}-${month}-${year}`;
-    };
-
-    const capitalizeSecondWord = (string) => {
-      const words = string.split(' ');
-      if (words.length >= 2) {
-        const capitalizedWords = words.map((word, index) => {
-          if (index === 1) {
-            return word.charAt(0).toUpperCase() + word.slice(1);
-          }
-          return word;
-        });
-        return capitalizedWords.join(' ');
-      }
-      return string;
-    };
-
-    const addPercent20ToSpaces = (string) => {
-      return string.replace(/ /g, '%20');
-    };
-
-    const formattedFrom = capitalizeSecondWord(from);
-    const formattedTo = capitalizeSecondWord(to);
-
-    const formattedFromWithPercent20 = addPercent20ToSpaces(formattedFrom);
-    const formattedToWithPercent20 = addPercent20ToSpaces(formattedTo);
-
     // Lakukan sesuatu dengan data pencarian
-    console.log('From:', formattedFromWithPercent20);
-    console.log('To:', formattedToWithPercent20);
-    console.log('Departure Date:', formatDate(departureDate));
+    console.log('From:', from);
+    console.log('To:', to);
+    console.log('Departure Date:', departureDate);
     console.log('Return Date:', returnDate);
     console.log('Passenger:', passenger);
     console.log('Seat Class:', seatClass);
-
-    try {
-      const response = await axios.get(`https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/tiket/${formatDate(departureDate)}/${formattedFromWithPercent20}/${formattedToWithPercent20}/harga-terendah`);
-      // console.log('API response:', response.data);
-      setResponseData(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
 
     // Reset form setelah submit
     setFrom('');
@@ -84,27 +38,10 @@ const FlightSearchForm = () => {
     setReturnDate('');
     setPassenger('');
     setSeatClass('');
-
-    console.log(responseData)
   };
-
-  useEffect(() => {
-    // Auto capitalize first letter of 'from' input
-    if (from) {
-      setFrom(from.charAt(0).toUpperCase() + from.slice(1));
-    }
-  }, [from]);
-
-  useEffect(() => {
-    // Auto capitalize first letter of 'to' input
-    if (to) {
-      setTo(to.charAt(0).toUpperCase() + to.slice(1));
-    }
-  }, [to]);
 
 
   return (
-    <div>
     <form onSubmit={handleSubmit} className={styles.flightsearchform}>
       <h1 className={styles.pilih}>Pilih Jadwal Penerbangan spesial di <span className='text-green-600'>Tiketku!</span></h1>
       <div className={styles.tx}>
@@ -160,7 +97,7 @@ const FlightSearchForm = () => {
           </div>
           <div className={styles.box}>
             <input className={styles.check} type="checkbox" id="switch" />
-            <label className={styles.lb} htmlFor="switch"></label>
+            <label className={styles.lb} for="switch"></label>
           </div>
         </div>
         <div className={styles.pl}>
@@ -193,39 +130,6 @@ const FlightSearchForm = () => {
       </div>
       <button type="submit" className={styles.btn} onClick={onpilihTiket}>Cari Penerbangan</button>
     </form>
-    {responseData.success && (
-      <div className={style.frm}  >
-        {responseData.data.map((flight, index) => (
-          <div key={index}>
-            <div className={style.airline}>
-              <img className={style.iconthumbnail} src="/Thumbnail.png" alt="Thumbnail" />
-              <h1 className={style.testh1}>{flight.airline.nama_maskapai} - {flight.airline.tipe_maskapai}</h1>
-              <CiCircleChevDown className={style.ccld} />
-            </div>
-            <div className={style.info}>
-              <div className={style.br}>
-                <p className={style.p1}>{flight.jam_berangkat}</p>
-                <p className={style.p2}>{flight.bandaraAwal.kota}</p>
-              </div>
-              <div className={style.br}>
-                <p className={style.p1}>1H 30m</p>
-                <p className={style.p2}>Direct</p>
-              </div>
-              <div className={style.br}>
-                <p className={style.p1}>{flight.jam_kedatangan}</p>
-                <p className={style.p2}>{flight.bandaraTujuan.kota}</p>
-              </div>
-                <RiSuitcase2Line className={style.kpr}/>
-                <div className={style.hrg}>
-                    <p className={style.idr}>Rp. {flight.airline.harga_tiket}</p>
-                    <button type="submit" className={style.plh}>Pilih</button>
-                </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    )}
-    </div>
   );
 };
 

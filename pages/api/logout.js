@@ -1,29 +1,20 @@
-import axios from 'axios';
-import Cookies from 'js-cookie';
+// pages/api/logout.js
+import axios from "axios";
 
 export default async function handler(req, res) {
-  if (req.method === 'DELETE') {
-    try {
-      // Get the access token from the cookie
-      const accessToken = Cookies.get('access_token');
+  try {
+    // Mengirim permintaan logout ke endpoint
+    await axios.delete(
+      "https://mang-eak-production.up.railway.app/v1/api/logout"
+    );
 
-      const response = await axios.delete('https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/logout', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
-
-      // Clear the access token cookie
-      Cookies.remove('access_token');
-
-      // Proses response dari server API
-      // ...
-      res.status(200).json(response.data);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal Server Error' });
-    }
-  } else {
-    res.status(405).json({ message: 'Method Not Allowed' });
+    // Mengirimkan respon sukses
+    res.status(200).json({ message: "Logout berhasil" });
+  } catch (error) {
+    console.error(error);
+    // Mengirimkan respon error
+    res
+      .status(500)
+      .json({ message: "Terjadi kesalahan saat melakukan logout" });
   }
 }
