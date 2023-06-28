@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     const { email } = req.body;
 
     try {
       // Make a POST request to the forgot password API endpoint
       const response = await axios.post(
-        'https://be-fsw-final-project-production-55d6.up.railway.app/v1/api/forgotPassword',
+        "https://mang-eak-production.up.railway.app/v1/api/forgotPassword",
         { email }
       );
 
@@ -18,6 +18,6 @@ export default async function handler(req, res) {
       res.status(error.response.status).json(error.response.data);
     }
   } else {
-    res.status(405).json({ message: 'Method Not Allowed' });
+    res.status(405).json({ message: "Method Not Allowed" });
   }
 }

@@ -1,156 +1,111 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./form-register.module.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import axios from 'axios';
-
-
-  
-
-
-  
-
+import axios from "axios";
 
 const FormRegister = () => {
   const router = useRouter();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
- const [showPassword, setShowPassword] = useState(false);
- const [formData, setFormData] = useState({
-  username: '',
-  password: '',
-  nama_lengkap: '',
-  alamat: '',
-  email: '',
-  nomor_telepon: ''
-});
-
-  const onMasukDiSiniClick = useCallback(() => {
-    router.push("/login");
-  }, [router]);
-
-
-  const toggleShowPassword = useCallback(() => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  }, []);
-
-  const handleChange = useCallback((e) => {
-    const { name, value, type, checked } = e.target;
-
-    if (name === 'password') {
-      setFormData((prevData) => ({
-        ...prevData,
-        password: value
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-      }));
-    }
-  }, []);
+  const [namaLengkap, setNamaLengkap] = useState("");
+  const [alamat, setAlamat] = useState("");
+  const [email, setEmail] = useState("");
+  const [nomorTelepon, setNomorTelepon] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Make a POST request to the register API endpoint
-      const response = await axios.post('/api/register', formData);
-      console.log(response.data); // Log the response data
-      // Handle the response as needed
+      // Kirim data register ke API
+      const response = await axios.post("/api/register", {
+        username,
+        password,
+        nama_lengkap: namaLengkap,
+        alamat,
+        email,
+        nomor_telepon: nomorTelepon,
+      });
 
-      // Redirect to the login page
-      router.push('/login');
+      setMessage(response.data.message);
+      // Jika pendaftaran berhasil, arahkan ke halaman login
+      if (response.data.message === "Pendaftaran berhasil") {
+        setTimeout(() => {
+          window.location.href = "/login"; // Ganti dengan alamat halaman login yang diinginkan
+        }, 2000); // Redirect setelah 2 detik
+      }
     } catch (error) {
-      console.error(error);
-      // Handle the error
+      setMessage("Terjadi kesalahan pada server");
     }
   };
 
+  const onMasukDiSiniClick = useCallback(() => {
+    router.push("/login");
+  }, [router]);
+
   return (
-    <div  className={styles.frameParent}>
-      <div className={styles.logoWrapper}>
-        <img className={styles.logoIcon} alt="" src="/logo@2x.png" />
-      </div>
+    <div className={styles.formdaftar}>
       <div className={styles.masuk}>
         <b className={styles.daftar}>Daftar</b>
       </div>
       <form className={styles.inner} onSubmit={handleSubmit}>
-      
         <div className={styles.input}>
           <div className={styles.username}>Username</div>
-          <div className={styles.usernameWrapper}>
-            <input
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Username"
-              required
-            />
-          </div>
+          <input
+            className={styles.inputChild}
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            required
+          />
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
             <div className={styles.buatPassword}>Buat Password</div>
           </div>
-          <div className={styles.buatPasswordParent}>
-            <input
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className={styles.username1}
-              type={showPassword ? "text" : "password"}
-              placeholder="Buat Password"
-              required
-            />
-            <button
-              className={styles.showPasswordButton}
-              onClick={toggleShowPassword}
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          </div>
+          <input
+            className={styles.inputItem}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Buat Password"
+            required
+          />
         </div>
         <div className={styles.input}>
           <div className={styles.username}>Nama Lengkap</div>
-          <div className={styles.usernameWrapper}>
-            <input
-              name="nama_lengkap" 
-              value={formData.nama_lengkap}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Nama Lengkap"
-              required
-            />
-          </div>
+          <input
+            className={styles.inputChild}
+            type="text"
+            value={namaLengkap}
+            onChange={(e) => setNamaLengkap(e.target.value)}
+            placeholder="Nama Lengkap"
+            required
+          />
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
             <div className={styles.buatPassword}>Alamat</div>
           </div>
-          <div className={styles.alamatContainer}>
-            <input
-              name="alamat"
-              value={formData.alamat}
-              onChange={handleChange}
-              className={styles.username1}
-              type="text"
-              placeholder="Alamat . "
-            />
-          </div>
+          <input
+            className={styles.inputItem}
+            type="text"
+            value={alamat}
+            onChange={(e) => setAlamat(e.target.value)}
+            placeholder="Alamat . "
+            required
+          />
         </div>
         <div className={styles.input}>
           <div className={styles.masuk}>
             <div className={styles.buatPassword}>Email</div>
           </div>
           <input
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={styles.inputChild}
+            className={styles.inputItem}
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Contoh: johndee@gmail.com"
             required
           />
@@ -159,25 +114,22 @@ const FormRegister = () => {
           <div className={styles.masuk}>
             <div className={styles.buatPassword}>Nomor Telepon</div>
           </div>
-          <div className={styles.alamatContainer}>
-            <input
-              name="nomor_telepon"
-              value={formData.nomor_telepon}
-              onChange={handleChange}
-              className={styles.username1}
-              type="tel"
-              placeholder="+62 . "
-              required
-            />
-          </div>
+          <input
+            className={styles.inputItem}
+            type="tel"
+            value={nomorTelepon}
+            onChange={(e) => setNomorTelepon(e.target.value)}
+            placeholder="+62 . "
+            required
+          />
         </div>
         <div className={styles.buttonWrapper}>
-          <button className={styles.button} type="submit">
+          <button className={styles.button}type="submit">
             <div className={styles.terbitkan}>Daftar</div>
           </button>
         </div>
-        </form>
-      
+      </form>
+      {message && <p style={{ color: message.includes('gagal') ? 'red' : 'green' }}>{message}</p>}
       <div className={styles.register}>
         <div className={styles.sudahPunyaAkun}>Sudah punya akun?</div>
         <button className={styles.masukDiSini} onClick={onMasukDiSiniClick}>

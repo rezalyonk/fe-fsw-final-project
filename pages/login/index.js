@@ -4,7 +4,11 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <div className={styles.wLogin}>
-        <img className={styles.frame23301} alt="" src="/frame-2330-1@2x.png" />
+        <img
+          className={styles.gambargradasiIcon}
+          alt=""
+          src="/gambargradasi@2x.png"
+        />
         <FormLogin />
       </div>
     </div>

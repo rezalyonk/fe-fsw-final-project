@@ -1,0 +1,98 @@
+.akun {
+  position: relative;
+  line-height: 30px;
+}
+.fiarrowLeftIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.detail {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+}
+.label,
+.textContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.textContent {
+  height: 46px;
+  flex-direction: column;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.homrbutton,
+.listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.homrbutton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  gap: 8px;
+  z-index: 0;
+}
+.listItem {
+  flex: 1;
+  border-radius: 12px;
+  background-color: #16a34a;
+  padding: 5px 16px;
+}
+.editSearch,
+.list {
+  align-items: flex-start;
+}
+.editSearch {
+  align-self: stretch;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.list {
+  border-radius: 16px;
+  background-color: #fff;
+  padding: 8px 0;
+}
+.framenav,
+.innernav,
+.list {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.innernav {
+  align-items: flex-start;
+  gap: 32px;
+}
+.framenav {
+  padding: 47px 233px 0;
+  align-items: center;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Poppins;
+}
+@media screen and (max-width: 960px) {
+  .framenav {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}

@@ -1,42 +1,56 @@
-import React from 'react';
+
+import { useRouter } from 'next/router';
 import styles from '../styles/detail.module.css';
 
-const FlightCard = ({ origin,maskapai, destination, flightNumber, departureTime, arrivalTime, passengerName }) => {
+const HalamanRincianPembelian = () => {
+  const router = useRouter();
+  const { id_penerbangan, nama_lengkap, nama_keluarga, nomor_telepon, email, kursi, jumlah_penumpang } = router.query;
+
+  const handleLanjutkanPembayaran = () => {
+    // Logika atau aksi yang ingin dilakukan saat tombol "Lanjutkan Pembayaran" ditekan
+    // Misalnya, navigasi ke halaman pembayaran
+    router.push('/pembayaran');
+  };
+
   return (
-    <div className={styles.card}>
-      <div className={styles.header}>
-        <span className={styles.label}>Flight Number : </span>
-        <span className={styles.flightNumber}>{flightNumber}</span>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <table className={styles.table}>
+          <tbody>
+            <tr>
+              <td>ID Penerbangan:</td>
+              <td>{id_penerbangan}</td>
+            </tr>
+            <tr>
+              <td>Nama Lengkap:</td>
+              <td>{nama_lengkap}</td>
+            </tr>
+            <tr>
+              <td>Nama Keluarga:</td>
+              <td>{nama_keluarga}</td>
+            </tr>
+            <tr>
+              <td>Nomor Telepon:</td>
+              <td>{nomor_telepon}</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>{email}</td>
+            </tr>
+            <tr>
+              <td>Kursi:</td>
+              <td>{kursi}</td>
+            </tr>
+            <tr>
+              <td>Jumlah Penumpang:</td>
+              <td>{jumlah_penumpang}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div className={styles.info}>
-      <div>
-          <span className={styles.label}>Nama Pemesan : </span>
-          <span className={styles.text}>{passengerName}</span>
-        </div>
-        <div>
-          <span className={styles.label}>Bandara Asal : </span>
-          <span className={styles.text}>{origin}</span>
-        </div>
-        <div>
-          <span className={styles.label}>Bandara Tujuan : </span>
-          <span className={styles.text}>{destination}</span>
-        </div>
-        <div>
-          <span className={styles.label}>Maskapai : </span>
-          <span className={styles.text}>{maskapai}</span>
-        </div>
-        <div>
-          <span className={styles.label}>Keberangkatan : </span>
-          <span className={styles.text}>{departureTime}</span>
-        </div>
-        <div>
-          <span className={styles.label}>Kedatangan : </span>
-          <span className={styles.text}>{arrivalTime}</span>
-        </div>
-        
-      </div>
+      <button className={styles.button} onClick={handleLanjutkanPembayaran}>Lanjutkan Pembayaran</button>
     </div>
   );
 };
 
-export default FlightCard;
+export default HalamanRincianPembelian;
