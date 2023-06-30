@@ -4,11 +4,10 @@
     align-items: flex-start;
     padding: 24px 0px;
     gap: 10px;
-    position: absolute;
     width: 968px;
     height: 298px;
-    left: 236px;
-    top: 100px;
+    margin-left: 255px;
+    margin-top: 100px;
     background: #fff;
     border: 1px solid  #D0D0D0;
     box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.15);
@@ -279,4 +278,27 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .flightsearchform {
+      margin-left: 135px;
+      width: 965px;
+    }
+
+    .btn {
+      width: 966px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .flightsearchform {
+      margin-left: 27px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .flightsearchform {
+      margin-left: 1px;
+    }
   }
