@@ -88,6 +88,15 @@ const HistoryPage1 = () => {
     setSelectedOrder(order);
   };
 
+  // Function to handle the "Bayar" button click
+  const handleBayarClick = () => {
+    // Check if the selectedOrder exists and its ticketStatus is "unpaid"
+    if (selectedOrder && selectedOrder.order.status_pembayaran === "unpaid") {
+      // Redirect to the "/pembayaran" page with the ID from the server response
+      router.push(`/pembayaran?id=${selectedOrder.order.id}`);
+    }
+  };
+
   return (
     <div className={styles.historyPage}>
       <Header
@@ -133,13 +142,13 @@ const HistoryPage1 = () => {
                         />
                         <div className={styles.info1}>
                           <b className={styles.asal}>
-                            {order.tiket.bandaraAwal.kota}
+                            {order.tiketBerangkat.bandaraAwal.kota}
                           </b>
                           <div className={styles.tgl}>
-                            {order.tiket.tanggal_berangkat}
+                            {order.tiketBerangkat.tanggal_berangkat}
                           </div>
                           <div className={styles.tgl}>
-                            {order.tiket.jam_berangkat}.00
+                            {order.tiketBerangkat.jam_berangkat}.00
                           </div>
                         </div>
                       </div>
@@ -147,11 +156,11 @@ const HistoryPage1 = () => {
                         <div className={styles.durasiParent}>
                           <div className={styles.durasi}>
                             <div className={styles.tgl}>
-                              {order.tiket.selisih_jam} h
+                              {order.tiketBerangkat.selisih_jam} h
                             </div>
                             <div className={styles.tgl}>
                               {" "}
-                              {order.tiket.selisih_menit} m
+                              {order.tiketBerangkat.selisih_menit} m
                             </div>
                           </div>
                           <img
@@ -169,14 +178,14 @@ const HistoryPage1 = () => {
                         />
                         <div className={styles.info1}>
                           <b className={styles.tujuan}>
-                            {order.tiket.bandaraTujuan.kota}
+                            {order.tiketBerangkat.bandaraTujuan.kota}
                           </b>
                           <div className={styles.tgl1}>
                             <p className={styles.p}>
-                              {order.tiket.tanggal_kedatangan}
+                              {order.tiketBerangkat.tanggal_kedatangan}
                             </p>
                             <p className={styles.p}>
-                              {order.tiket.jam_kedatangan}.00
+                              {order.tiketBerangkat.jam_kedatangan}.00
                             </p>
                           </div>
                         </div>
@@ -250,7 +259,7 @@ const HistoryPage1 = () => {
                     </div>
                     <div className={styles.plane}>
                       <p className={styles.p}>
-                        {selectedOrder.tiket.bandaraAwal.nama_bandara}
+                        {selectedOrder.tiketBerangkat.bandaraAwal.nama_bandara}
                       </p>
                     </div>
                   </div>
@@ -307,7 +316,10 @@ const HistoryPage1 = () => {
                           <p className={styles.p}>
                             <span className={styles.jetAirEconomy1}>
                               <b>
-                                {selectedOrder.tiket.maskapai.nama_maskapai}
+                                {
+                                  selectedOrder.penerbanganBerangkat.maskapai
+                                    .nama_maskapai
+                                }
                               </b>
                             </span>
                           </p>
@@ -340,7 +352,7 @@ const HistoryPage1 = () => {
                 <div className={styles.info14}>
                   <div className={styles.jadwal1}>
                     <div className={styles.plane1}>
-                      {selectedOrder.tiket.bandaraTujuan.nama_bandara}
+                      {selectedOrder.tiketBerangkat.bandaraTujuan.nama_bandara}
                     </div>
                     <div className={styles.tujuan}>
                       <p className={styles.p}>
@@ -368,7 +380,10 @@ const HistoryPage1 = () => {
                     </div>
                     <div className={styles.suffix}>
                       <div className={styles.tujuan}>
-                        {selectedOrder.tiket.maskapai.harga_tiket}
+                        {
+                          selectedOrder.penerbanganBerangkat.maskapai
+                            .harga_tiket
+                        }
                       </div>
                     </div>
                   </div>
@@ -399,6 +414,13 @@ const HistoryPage1 = () => {
                     </div>
                   </div>
                 </div>
+                {selectedOrder.order.status_pembayaran === "unpaid" && (
+                  <div className={styles.bayarButtonWrapper}>
+                    <Button variant="primary" onClick={handleBayarClick}>
+                      Bayar
+                    </Button>
+                  </div>
+                )}
               </div>
             )}
           </div>
