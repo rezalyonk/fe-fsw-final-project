@@ -1,5 +1,5 @@
-.container{
-  display:flex ;
+.container {
+  display: flex;
   justify-content: center;
 }
 .masuk {
@@ -12,10 +12,10 @@
   position: relative;
   line-height: 36px;
   size: 40px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 16px;
-  
+
   width: 486px;
   height: 40px;
   flex: none;
@@ -27,7 +27,7 @@
   border: 1px solid gray;
   padding: 20px;
   border-radius: 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 518px;
   flex-direction: row;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,8 +43,8 @@
 .forminput {
   align-self: stretch;
   border-radius: 10px;
-  background: #FFFFFF;
-  border: 1px solid #D0D0D0;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
   border-radius: 4px;
   width: 454px;
   height: 40px;
@@ -53,7 +53,7 @@
 }
 
 .formbutton {
-  margin-top: 20px;
+  margin-top: 20.1px;
   padding: 5px 20px;
   background-color: white;
   color: #4d2771;
@@ -65,4 +65,24 @@
 .formbutton:hover {
   background-color: #4d2771;
   color: white;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: #72c47c;
+  color: #ffffff;
+}
+
+.error {
+  background-color: #ff5252;
+  color: #ffffff;
 }

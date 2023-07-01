@@ -1,15 +1,22 @@
-
-import { useRouter } from 'next/router';
-import styles from '../styles/detail.module.css';
+import { useRouter } from "next/router";
+import styles from "../styles/detail.module.css";
 
 const HalamanRincianPembelian = () => {
   const router = useRouter();
-  const { id_penerbangan, nama_lengkap, nama_keluarga, nomor_telepon, email, kursi, jumlah_penumpang } = router.query;
+  const {
+    id_penerbangan,
+    nama_lengkap,
+    nama_keluarga,
+    nomor_telepon,
+    email,
+    kursi,
+    jumlah_penumpang,
+    id, // Ambil ID dari query id
+  } = router.query;
 
   const handleLanjutkanPembayaran = () => {
-    // Logika atau aksi yang ingin dilakukan saat tombol "Lanjutkan Pembayaran" ditekan
-    // Misalnya, navigasi ke halaman pembayaran
-    router.push('/pembayaran');
+    // Navigasi ke halaman pembayaran dengan mengirimkan ID sebagai parameter query
+    router.push(`/pembayaran?id=${id}`);
   };
 
   return (
@@ -48,7 +55,9 @@ const HalamanRincianPembelian = () => {
           </tbody>
         </table>
       </div>
-      <button className={styles.button} onClick={handleLanjutkanPembayaran}>Lanjutkan Pembayaran</button>
+      <button className={styles.button} onClick={handleLanjutkanPembayaran}>
+        Lanjutkan Pembayaran
+      </button>
     </div>
   );
 };
