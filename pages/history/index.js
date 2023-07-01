@@ -215,7 +215,7 @@ const HistoryPage1 = () => {
                         className={`${styles.ticketStatus} ${
                           selectedOrder.order.status_pembayaran === "unpaid"
                             ? styles.unpaidStatus
-                            : order.order.status_pembayaran === "paid"
+                            : selectedOrder.order.status_pembayaran === "paid"
                             ? styles.paidStatus
                             : styles.canceledStatus
                         }`}

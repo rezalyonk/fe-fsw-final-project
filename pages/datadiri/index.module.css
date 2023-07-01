@@ -69,3 +69,23 @@
     box-sizing: border-box;
   }
 }
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: #72c47c;
+  color: #ffffff;
+}
+
+.error {
+  background-color: #ff5252;
+  color: #ffffff;
+}

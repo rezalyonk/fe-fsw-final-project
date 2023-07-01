@@ -4,7 +4,7 @@ import {FcNext } from "react-icons/fc"
 
 const Login = () => {
   return (
-    <div >
+    <div className={styles.register}>
       <div className={styles.cont}>
         <div className={styles.proses}>
           <h1 className={styles.span2}>Data Diri</h1>

@@ -1,0 +1,159 @@
+.span {
+    color: #8a8a8a;
+  }
+  .selesai {
+    position: relative;
+    line-height: 30px;
+  }
+  .header {
+    align-self: stretch;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: 131px 260px 52px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .detail {
+    flex: 1;
+    position: relative;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .item,
+  .label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .label {
+    flex: 1;
+    justify-content: center;
+    z-index: 0;
+  }
+  .item {
+    align-self: stretch;
+    border-radius: 12px;
+    background-color: #73ca5c;
+    padding: 5px 16px;
+    justify-content: flex-start;
+  }
+  .illustrationCartShoppingLi {
+    position: relative;
+    width: 204px;
+    height: 209px;
+    object-fit: cover;
+  }
+  .selamat {
+    margin: 0;
+  }
+  .transaksiPembayaranTiket {
+    margin: 0;
+    color: #000;
+  }
+  .selamatTransaksiPembayaranContainer {
+    position: relative;
+    line-height: 20px;
+    font-weight: 500;
+  }
+  .selamatTransaksiPembayaranWrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 10px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .ubahPencarian {
+    flex: 1;
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: Poppins;
+    color: #fff;
+    text-align: center;
+  }
+  .brandButton,
+  .illustrationCartShoppingLiParent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .brandButton {
+    cursor: pointer;
+    border: 0;
+    padding: 12px;
+    background-color: #16a34a;
+    border-radius: 12px;
+    width: 347px;
+    overflow: hidden;
+    flex-direction: row;
+    box-sizing: border-box;
+  }
+  .brandButton:hover {
+    background-color: #128d3f;
+  }
+  .illustrationCartShoppingLiParent {
+    align-self: stretch;
+    flex-direction: column;
+    padding: 0 0 167px;
+    gap: 15px;
+    font-size: 14px;
+    color: #73ca5c;
+  }
+  .itemParent,
+  .pembayaranberhasil {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .itemParent {
+    align-self: stretch;
+    padding: 49px 241px;
+    gap: 70px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+  .pembayaranberhasil {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    color: #000;
+    font-family: Poppins;
+  }
+  @media screen and (max-width: 960px) {
+    .header,
+    .itemParent {
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .header {
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+    .illustrationCartShoppingLi {
+      max-width: 50%;
+      height: auto;
+    }
+    .brandButton {
+      align-self: stretch;
+      width: auto;
+    }
+    .itemParent {
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+  }
+  

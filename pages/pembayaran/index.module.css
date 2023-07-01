@@ -1,71 +1,286 @@
-.icon{
-  color: blueviolet;
+.span {
+  color: #8a8a8a;
 }
-.span{
-  font-weight: bold;
-  font-style: italic;
-  color: blueviolet;
-  margin-left: 5px;
-}
-.span2{
-  font-weight: bold;
-  font-style: italic;
-  color: gray;
-  margin-left: 5px;
-
-}
-.proses{
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-.register,
-.wLogin {
-  margin-left: 20px;
-  margin-top: 20px;
-}
-.wLogin {
-  align-self: stretch;
-  background-color: #fff;
-  overflow: hidden;
-  flex-direction: row;
-  padding: 0 0 0 1px;
-  align-items: center;
-  gap: 134px;
-}
-.register {
+.isiDataDiriContainer {
   position: relative;
-  width: 100%;
+  line-height: 30px;
+}
+.header {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 131px 260px 52px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.accordionitemb,
+.header {
+  align-self: stretch;
+}
+.amexLogoIcon,
+.mastercardLogoIcon,
+.visaLogoIcon {
+  position: relative;
+  width: 25.83px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.amexLogoIcon,
+.visaLogoIcon {
+  width: 26.25px;
+}
+.amexLogoIcon {
+  width: 31.2px;
+}
+.paymentOptions {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.cardNumber {
+  align-self: stretch;
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+}
+.framecardnumberChild {
+  border: 0;
+  font-family: Poppins;
+  font-size: 14px;
+  background-color: transparent;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 0 4px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  outline: 0;
+}
+.framecardnumberChild:focus,
+.inputcardname:focus,
+.inputcvv:focus {
+  outline: 0;
+}
+.framecardnumberItem {
+  align-self: stretch;
+  position: relative;
+  border-top: 0.8px solid #d0d0d0;
+  box-sizing: border-box;
+  height: 0.75px;
+}
+.framecardnumber,
+.inputnumber {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.inputnumber {
+  padding: 0 81px;
+  gap: 10px;
+}
+.inputcardname,
+.inputcvv {
+  border: 0;
+  font-family: Poppins;
+  font-size: 14px;
+  background-color: transparent;
+  align-self: stretch;
+}
+.inputcardname {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  stroke: none;
+}
+.inputcvv {
+  flex-direction: column;
+  padding: 0 4px;
+}
+.cvvParent,
+.inputcvv,
+.inputdate {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cvvParent {
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+}
+.inputdate {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 81px;
+  gap: 32px;
+}
+.cardDetails,
+.inputnumberParent {
+  align-self: stretch;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
-@media screen and (max-width: 1200px) {
-  .wLogin {
-    flex-direction: column;
-  }
-  .register {
-    padding-left: 45px;
-    box-sizing: border-box;
-  }
+.cardDetails {
+  padding: 12px 0;
+}
+.pilih {
+  flex: 1;
+  position: relative;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+  font-family: Poppins;
+  color: #fff;
+  text-align: center;
+}
+.buttonbayar {
+  cursor: pointer;
+  border: 0;
+  padding: 16px 12px;
+  background-color: #16a34a;
+  align-self: stretch;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.buttonbayar:hover {
+  background-color: #128d3f;
+}
+.framecard,
+.info {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 16px;
+}
+.framecard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 14px;
+  color: #151515;
+}
+.info {
+  flex: 1;
+  padding: 16px 0;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Poppins;
+}
+.data,
+.dataWrapper,
+.info,
+.pembayaran {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.data {
+  align-self: stretch;
+  flex-direction: row;
+  gap: 98px;
+}
+.dataWrapper,
+.pembayaran {
+  overflow: hidden;
+  flex-direction: column;
+}
+.dataWrapper {
+  align-self: stretch;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-top: 1px solid #000;
+  padding: 35px 166px;
+}
+.pembayaran {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Poppins;
 }
 @media screen and (max-width: 960px) {
-  .frame23301 {
-    display: none;
-    max-width: 50%;
-    height: auto;
+  .header,
+  .inputnumber {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
-  .wLogin {
+  .cvvParent {
+    flex: unset;
+    align-self: stretch;
+  }
+  .inputdate {
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  .info {
+    flex: unset;
+    align-self: stretch;
+  }
+  .data {
     flex-direction: column;
   }
-  .register {
-    padding-left: 75px;
+  .dataWrapper {
+    padding-left: 35px;
+    padding-right: 35px;
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 420px) {
-  .register {
-    gap: 10px;
-    padding-left: 75px;
+  .header {
+    padding-left: 15px;
+    padding-right: 15px;
     box-sizing: border-box;
   }
+  .cvvParent {
+    flex: unset;
+    align-self: stretch;
+  }
+  .inputdate {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .buttonbayar,
+  .cardDetails,
+  .dataWrapper {
+    padding-left: 0;
+    box-sizing: border-box;
+  }
+  .buttonbayar,
+  .dataWrapper {
+    padding-right: 0;
+  }
+  .dataWrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.errorMessage {
+  color: white;
+  background-color: red;
+}
+
+.successMessage {
+  color: white;
+  background-color: green;
 }

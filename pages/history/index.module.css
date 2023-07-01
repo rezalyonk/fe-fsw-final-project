@@ -50,7 +50,7 @@
   border-radius: 16px;
   flex-direction: row;
 }
-.unpaidStatus {
+.paidStatus {
   background-color: #73ca5c;
 }
 .unpaidStatus {
