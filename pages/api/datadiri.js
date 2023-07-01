@@ -37,7 +37,28 @@ export default async function handler(req, res) {
       }
     );
 
-    return res.status(200).json(response.data.data);
+    // Berhasil
+    const responseData = {
+      status: true,
+      message: "Pemesanan Berhasil",
+      data: {
+        id: response.data.id,
+        user_id: response.data.user_id,
+        id_penerbangan: response.data.id_penerbangan,
+        nama_lengkap: response.data.nama_lengkap,
+        nama_keluarga: response.data.nama_keluarga,
+        nomor_telepon: response.data.nomor_telepon,
+        email: response.data.email,
+        kursi: response.data.kursi,
+        kursi_terisi: response.data.kursi_terisi,
+        jumlah_penumpang: response.data.jumlah_penumpang,
+        kode_booking: response.data.kode_booking,
+        status_pembayaran: response.data.status_pembayaran,
+        id_penerbangan_pulang: response.data.id_penerbangan_pulang,
+      },
+    };
+
+    return res.status(200).json(response.data);
   } catch (error) {
     // Gagal
     return res.status(500).json({ message: "order gagal" });
