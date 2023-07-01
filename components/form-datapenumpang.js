@@ -14,7 +14,7 @@ export default function DataDiri() {
     jumlah_penumpang: 0,
   });
   const [message, setMessage] = useState("");
-  const router = useRouter();//router
+  const router = useRouter();
 
   useEffect(() => {
     // Periksa apakah pengguna telah login dengan memeriksa keberadaan access token di cookie
