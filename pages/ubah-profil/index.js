@@ -61,8 +61,6 @@ const Akun = () => {
     return <p className={`${styles.message} ${messageClass}`}>{message}</p>;
   }
 
-
-
   return (
     <div className={styles.akun}>
       <AkunContainer />

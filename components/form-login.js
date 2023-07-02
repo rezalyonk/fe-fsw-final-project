@@ -6,7 +6,6 @@ import Cookies from "js-cookie";
 
 const FormLogin = () => {
   const router = useRouter();
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -28,35 +27,22 @@ const FormLogin = () => {
         [name]: value,
       }));
     }
-
-    // Pemanggilan fungsi handleChange yang pertama
-    // dengan memanggil fungsi handleChange yang ada di useState
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Lakukan proses login seperti sebelumnya
       const response = await axios.post("/api/login", formData);
-      // Log the response data
-      console.log(response);
-      // Handle the response as needed
-      if (response.status == 200) {
-        setIsLoggedIn(true);
+
+      if (response.status === 200) {
         sessionStorage.setItem("isLoggedIn", "true");
+        sessionStorage.setItem("userData", JSON.stringify(response.data.data));
         Cookies.set("accessToken", response.data.data.accessToken);
-        // Redirect ke halaman landing page
         router.push("/");
       }
-      // Set isLoggedIn ke true dan simpan status login di session storage
     } catch (error) {
       console.error(error);
-      // Handle the error
       setErrorMessage("Incorrect email or password. Please try again.");
     }
   };
@@ -76,7 +62,6 @@ const FormLogin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Cek session storage saat komponen halaman login dimuat
     const isLoggedInSession = sessionStorage.getItem("isLoggedIn");
     if (isLoggedInSession === "true") {
       setIsLoggedIn(true);
@@ -85,18 +70,23 @@ const FormLogin = () => {
 
   const handleLogout = async () => {
     try {
-      // Lakukan proses logout seperti sebelumnya
-
-      // Hapus status login dari session storage
       sessionStorage.removeItem("isLoggedIn");
+      sessionStorage.removeItem("userData");
       Cookies.remove("accessToken");
-      // Redirect ke halaman login
       router.push("/");
     } catch (error) {
       console.error(error);
-      // Handle error
     }
   };
+
+  useEffect(() => {
+    const userData = sessionStorage.getItem("userData");
+    if (isLoggedIn && userData) {
+      const parsedUserData = JSON.parse(userData);
+      // Lakukan apa pun yang perlu Anda lakukan dengan data pengguna, misalnya menyimpannya dalam state
+      console.log(parsedUserData);
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className={styles.formlogin}>
@@ -160,6 +150,14 @@ const FormLogin = () => {
               Daftar di sini
             </button>
           </div>
+          {isLoggedIn && (
+            <button
+              onClick={() => router.push("/pages/akun")}
+              className={styles.akunButton}
+            >
+              Lihat Akun
+            </button>
+          )}
         </form>
       )}
     </div>

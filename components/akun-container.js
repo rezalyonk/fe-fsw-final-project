@@ -1,5 +1,13 @@
 import styles from "./akun-container.module.css";
+import { useCallback } from "react";
+import { useRouter } from "next/router";
+
 const AkunContainer = () => {
+  const router = useRouter();
+  const onHomeButtonClick = useCallback(() => {
+    router.push("/");
+  }, [router]);
+
   return (
     <div className={styles.framenav}>
       <div className={styles.innernav}>
@@ -15,7 +23,9 @@ const AkunContainer = () => {
                 />
                 <div className={styles.textContent}>
                   <div className={styles.label}>
-                    <div className={styles.detail}>Beranda</div>
+                    <div className={styles.detail} onClick={onHomeButtonClick}>
+                      Beranda
+                    </div>
                   </div>
                 </div>
               </button>

@@ -38,6 +38,7 @@ const Navbar = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("isLoggedIn"); // Menghapus status isLoggedIn dari localStorage
     sessionStorage.removeItem("isLoggedIn"); // Menghapus status isLoggedIn dari sessionStorage
+    sessionStorage.removeItem("userData");
   };
 
   return (

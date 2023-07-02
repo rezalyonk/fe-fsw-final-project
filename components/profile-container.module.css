@@ -22,17 +22,18 @@
   cursor: pointer;
   border: 0;
   padding: 0;
-  background-color: transparent;
+  
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
 }
-.filogOutParent:hover,
-.settingakun:hover,
 .ubahprofil:hover {
   box-shadow: 0 4px 4px rgba(120, 230, 89, 0.25);
+}
+.ubahprofil:disabled {
+  background-color: #bddcaf;
 }
 .divider {
   align-self: stretch;
@@ -71,6 +72,10 @@
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
+}
+.filogOutParent:hover,
+.settingakun:hover {
+  box-shadow: 0 4px 4px rgba(120, 230, 89, 0.25);
 }
 .divider1 {
   position: relative;
