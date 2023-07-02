@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -11,12 +12,8 @@
   height: 498px;
   background: #FFFFFF;
   border: 1px solid #8A8A8A;
-  
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  
-  /* Inside auto layout */
-  
   order: 0;
   flex-grow: 0;
 }
@@ -30,12 +27,14 @@
 .table td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Show ellipsis (...) for overflowing text */
 }
 
 .table td:first-child {
   font-weight: bold;
 }
-
 
 .button {
   margin-top: 20px;
@@ -51,4 +50,22 @@
 .button:hover {
   background-color: #4d2771;
   color: white;
+}
+
+/* Media queries for tablet screens */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    height: auto;
+    max-width: 600px;
+  }
+}
+
+/* Media queries for smartphone screens */
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    height: auto;
+    max-width: 400px;
+  }
 }

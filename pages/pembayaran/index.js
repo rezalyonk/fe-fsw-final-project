@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./index.module.css";
 import axios from "axios";
+import {AiFillForward } from "react-icons/ai"
 
 const Pembayaran = () => {
   const router = useRouter();
@@ -67,14 +68,13 @@ const Pembayaran = () => {
   };
   return (
     <div className={styles.pembayaran}>
-      <div className={styles.header}>
-        <b className={styles.isiDataDiriContainer}>
-          <span>{`Isi Data Diri   `}</span>
-          <span className={styles.span}>{`>   `}</span>
-          <span>Bayar</span>
-          <span className={styles.span}>{`    >   Selesai`}</span>
-        </b>
-      </div>
+         <div className={styles.proses}>
+          <h1 className={styles.span2}>Data Diri</h1>
+          <AiFillForward size={25} className={styles.icon}/>
+          <h1 className={styles.span2}>Detai Pesanan </h1>
+          <AiFillForward size={25} className={styles.icon}/>
+          <h1 className={styles.span}>Pembayaran</h1>
+        </div>
       <form className={styles.dataWrapper} onSubmit={handleSubmit}>
         <div className={styles.data}>
           <main className={styles.info}>

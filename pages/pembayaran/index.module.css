@@ -1,6 +1,30 @@
 .span {
   color: #8a8a8a;
 }
+.span{
+  font-weight: bold;
+  font-style: italic;
+  color: blueviolet;
+  margin-left: 5px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.icon{
+  color: blueviolet;
+}
+.span2{
+  font-weight: bold;
+  font-style: italic;
+  color: gray;
+  margin-left: 5px;
+  font-size: 20px;
+  margin-top: 5px
+}
+.proses{
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
 .isiDataDiriContainer {
   position: relative;
   line-height: 30px;
