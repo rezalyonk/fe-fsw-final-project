@@ -1,17 +1,21 @@
 .icon{
   color: blueviolet;
+  margin-top: 53px;
+  margin-left: 5px;
 }
 .span{
   font-weight: bold;
   font-style: italic;
   color: blueviolet;
   margin-left: 5px;
+  margin-top: 50px;
 }
 .span2{
   font-weight: bold;
   font-style: italic;
   color: gray;
   margin-left: 5px;
+  margin-top: 50px;
 
 }
 .proses{
@@ -47,6 +51,15 @@
     padding-left: 45px;
     box-sizing: border-box;
   }
+  .span{
+    margin-top: 8px;
+  }
+  .span2{
+    margin-top: 8px;
+  }
+  .icon{
+    margin-top: 8px;
+  }
 }
 @media screen and (max-width: 960px) {
   .frame23301 {
@@ -68,7 +81,17 @@
     padding-left: 75px;
     box-sizing: border-box;
   }
+  .span{
+    margin-top: 8px;
+  }
+  .span2{
+    margin-top: 8px;
+  }
+  .icon{
+    margin-top: 8px;
+  }
 }
+
 
 .message {
   display: flex;
