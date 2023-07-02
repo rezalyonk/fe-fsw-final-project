@@ -736,7 +736,6 @@
   gap: 17px;
 }
 .frameParent,
-
 .illustrationCartShoppingLiParent {
   display: flex;
   flex-direction: column;
@@ -768,5 +767,132 @@
     padding-right: 15px;
     box-sizing: border-box;
     padding-left: 50px;
+  }
+}
+
+.riwayatPemesanan {
+  position: relative;
+  line-height: 30px;
+}
+.fiarrowLeftIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.detailHeader {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: Poppins;
+  color: #fff;
+  text-align: left;
+}
+.labelHeader,
+.textContentHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.textContentHeader {
+  height: 46px;
+  flex-direction: column;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.homebutton,
+.listItemHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.homebutton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 30px;
+  gap: 8px;
+  z-index: 0;
+}
+.listItemHeader {
+  flex: 1;
+  border-radius: 12px;
+  background-color: #16a34a;
+  height: 32px;
+  padding: 5px 16px;
+  box-sizing: border-box;
+}
+.prefixIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.prefixWrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  padding: 2px 0 2px 4px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.listItem1 {
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  width: 175px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 6px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.editSearch,
+.riwayatPemesananParent {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.editSearch {
+  border-radius: 12px;
+  flex-direction: row;
+  gap: 12px;
+}
+.riwayatPemesananParent {
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  padding: 95.75px 244px 15.75px;
+  gap: 24px;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Poppins;
+}
+@media screen and (max-width: 960px) {
+  .riwayatPemesananParent {
+    padding-left: 35px;
+    padding-right: 35px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .riwayatPemesananParent {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 }

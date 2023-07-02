@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
 import { useRef } from "react";
 
 const HistoryPage1 = () => {
@@ -19,6 +19,9 @@ const HistoryPage1 = () => {
   const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [ticketStatus, setTicketStatus] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   // Tambahkan ref ke elemen deskripsi
   const deskripsiRef = useRef(null);
@@ -53,18 +56,62 @@ const HistoryPage1 = () => {
     return <p>Mengambil data histori pemesanan...</p>;
   }
 
-  const filteredHistory = historyData.filter(
-    (order) => order.order.kode_booking
-  );
+  const filteredHistory = historyData.filter((order) => {
+    if (ticketStatus === "all") {
+      return order.order.kode_booking.includes(searchQuery); // Tambahkan kondisi pencarian berdasarkan kode_booking
+    } else {
+      return (
+        order.order.status_pembayaran === ticketStatus &&
+        order.order.kode_booking.includes(searchQuery) // Tambahkan kondisi pencarian berdasarkan kode_booking
+      );
+    }
+  });
+  // Function to handle search query change
+  const handleSearchQueryChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
   if (filteredHistory.length === 0) {
     return (
       <div>
-        <Header
-          prefixIcon="/prefix-icon1.svg"
-          filterDisplay="inline-block"
-          onHomeButtonClick={onHomeButtonClick}
-        />
+        <>
+          <div className={styles.riwayatPemesananParent}>
+            <b className={styles.riwayatPemesanan}>Riwayat Pemesanan</b>
+            <div className={styles.editSearch}>
+              <div className={styles.listItemHeader}>
+                <button
+                  className={styles.homebutton}
+                  onClick={onHomeButtonClick}
+                >
+                  <img
+                    className={styles.fiarrowLeftIcon}
+                    alt=""
+                    src="/fiarrowleft.svg"
+                  />
+                  <div className={styles.textContentHeader}>
+                    <div className={styles.labelHeader}>
+                      <div className={styles.detailHeader}>Beranda</div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div className={styles.listItem1}>
+                <Form.Group
+                  controlId="searchForm"
+                  className={styles.searchForm}
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="Cari kode"
+                    value={searchQuery}
+                    onChange={handleSearchQueryChange}
+                  />
+                </Form.Group>
+              </div>
+            </div>
+          </div>
+        </>
+
         <div className={styles.frameParent}>
           <div className={styles.illustrationCartShoppingLiParent}>
             <img
@@ -104,13 +151,58 @@ const HistoryPage1 = () => {
     }
   };
 
+  // Function to handle ticket status change
+  const handleTicketStatusChange = (status) => {
+    setTicketStatus(status);
+  };
+
   return (
     <div className={styles.historyPage}>
-      <Header
-        prefixIcon="/prefix-icon1.svg"
-        filterDisplay="inline-block"
-        onHomeButtonClick={onHomeButtonClick}
-      />
+      <>
+        <div className={styles.riwayatPemesananParent}>
+          <b className={styles.riwayatPemesanan}>Riwayat Pemesanan</b>
+          <div className={styles.editSearch}>
+            <div className={styles.listItemHeader}>
+              <button className={styles.homebutton} onClick={onHomeButtonClick}>
+                <img
+                  className={styles.fiarrowLeftIcon}
+                  alt=""
+                  src="/fiarrowleft.svg"
+                />
+                <div className={styles.textContentHeader}>
+                  <div className={styles.labelHeader}>
+                    <div className={styles.detailHeader}>Beranda</div>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div className={styles.listItem1}>
+              <Form.Group controlId="searchForm" className={styles.searchForm}>
+                <Form.Control
+                  type="text"
+                  placeholder="Cari kode"
+                  value={searchQuery}
+                  onChange={handleSearchQueryChange}
+                />
+              </Form.Group>
+            </div>
+          </div>
+        </div>
+      </>
+      <DropdownButton
+        title={`Filter: ${ticketStatus}`}
+        onSelect={handleTicketStatusChange}
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+        }}
+      >
+        <Dropdown.Item eventKey="all">Semua</Dropdown.Item>
+        <Dropdown.Item eventKey="unpaid">Belum Dibayar</Dropdown.Item>
+        <Dropdown.Item eventKey="paid">Sudah Dibayar</Dropdown.Item>
+      </DropdownButton>
+
       <div className={styles.detailouter}>
         <div className={styles.frameinnder}>
           <div>
@@ -469,7 +561,7 @@ const HistoryPage1 = () => {
                   </div>
                   {selectedOrder.order.status_pembayaran === "unpaid" && (
                     <div className={styles.bayarButtonWrapper}>
-                      <Button variant="primary" onClick={handleBayarClick}>
+                      <Button variant="success" onClick={handleBayarClick}>
                         Bayar
                       </Button>
                     </div>
