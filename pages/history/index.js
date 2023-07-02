@@ -7,6 +7,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
+import { useRef } from "react";
+
 const HistoryPage1 = () => {
   const router = useRouter();
 
@@ -17,6 +19,9 @@ const HistoryPage1 = () => {
   const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
+
+  // Tambahkan ref ke elemen deskripsi
+  const deskripsiRef = useRef(null);
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -86,6 +91,8 @@ const HistoryPage1 = () => {
 
   const handleTicketClick = (order) => {
     setSelectedOrder(order);
+    // Arahkan scroll ke elemen deskripsi
+    deskripsiRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   // Function to handle the "Bayar" button click
@@ -213,216 +220,263 @@ const HistoryPage1 = () => {
               </div>
             ))}
           </div>
+
           <div className={styles.deskripsi}>
-            {selectedOrder && (
-              <div className={styles.sectionContent3}>
-                <div className={styles.detail}>
-                  <div className={styles.detailStatus}>
-                    <b className={styles.detil}>Detail Pesanan</b>
-                    <div className={styles.ticketStatus3}>
-                      <div
-                        className={`${styles.ticketStatus} ${
-                          selectedOrder.order.status_pembayaran === "unpaid"
-                            ? styles.unpaidStatus
-                            : selectedOrder.order.status_pembayaran === "paid"
-                            ? styles.paidStatus
-                            : styles.canceledStatus
-                        }`}
-                      >
-                        {selectedOrder.order.status_pembayaran}
+            <div ref={deskripsiRef}>
+              {selectedOrder && (
+                <div className={styles.sectionContent3}>
+                  <div className={styles.detail}>
+                    <div className={styles.detailStatus}>
+                      <b className={styles.detil}>Detail Pesanan</b>
+                      <div className={styles.ticketStatus3}>
+                        <div
+                          className={`${styles.ticketStatus} ${
+                            selectedOrder.order.status_pembayaran === "unpaid"
+                              ? styles.unpaidStatus
+                              : selectedOrder.order.status_pembayaran === "paid"
+                              ? styles.paidStatus
+                              : styles.canceledStatus
+                          }`}
+                        >
+                          {selectedOrder.order.status_pembayaran}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={styles.code}>
-                    <div className={styles.code1}>
-                      <span>
-                        <span>Booking Code:</span>
-                        <b className={styles.b}>{` `}</b>
-                      </span>
-                      <b className={styles.b}>
-                        <span>{selectedOrder.order.kode_booking}</span>
-                      </b>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.info12}>
-                  <div className={styles.jadwal}>
-                    <div className={styles.jam6}>
-                      <p className={styles.p}>
-                        <b className={styles.b1}>
-                          {selectedOrder.order.jam_berangkat}
+                    <div className={styles.code}>
+                      <div className={styles.code1}>
+                        <span>
+                          <span>Booking Code:</span>
+                          <b className={styles.b}>{` `}</b>
+                        </span>
+                        <b className={styles.b}>
+                          <span>{selectedOrder.order.kode_booking}</span>
                         </b>
-                      </p>
-                      <p className={styles.maret20233}>
-                        {selectedOrder.order.tanggal_berangkat}
-                      </p>
-                    </div>
-                    <div className={styles.plane}>
-                      <p className={styles.p}>
-                        {selectedOrder.tiketBerangkat.bandaraAwal.nama_bandara}
-                      </p>
+                      </div>
                     </div>
                   </div>
-                  <div className={styles.status3}>
-                    <b className={styles.berangkat}>Keberangkatan</b>
+                  <div className={styles.info12}>
+                    <div className={styles.jadwal}>
+                      <div className={styles.jam6}>
+                        <p className={styles.p}>
+                          <b className={styles.b1}>
+                            {selectedOrder.order.jam_berangkat}
+                          </b>
+                        </p>
+                        <p className={styles.maret20233}>
+                          {selectedOrder.order.tanggal_berangkat}
+                        </p>
+                      </div>
+                      <div className={styles.plane}>
+                        <p className={styles.p}>
+                          {
+                            selectedOrder.tiketBerangkat.bandaraAwal
+                              .nama_bandara
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    <div className={styles.status3}>
+                      <b className={styles.berangkat}>Keberangkatan</b>
+                    </div>
                   </div>
-                </div>
-                <img className={styles.dividerIcon} alt="" src="/divider.svg" />
-                <div className={styles.airline}>
-                  <div className={styles.listItem}>
-                    <div className={styles.thumbnail}>
-                      <div className={styles.image}>
-                        <div className={styles.row}>
-                          <div className={styles.scaleUnitHorizontal}>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
+                  <img
+                    className={styles.dividerIcon}
+                    alt=""
+                    src="/divider.svg"
+                  />
+                  <div className={styles.airline}>
+                    <div className={styles.listItem}>
+                      <div className={styles.thumbnail}>
+                        <div className={styles.image}>
+                          <div className={styles.row}>
+                            <div className={styles.scaleUnitHorizontal}>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
                             </div>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
+                            <div className={styles.scaleUnitHorizontal1}>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
                             </div>
                           </div>
-                          <div className={styles.scaleUnitHorizontal1}>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
+                          <div className={styles.row}>
+                            <div className={styles.scaleUnitHorizontal}>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
                             </div>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className={styles.row}>
-                          <div className={styles.scaleUnitHorizontal}>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
-                            </div>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
-                            </div>
-                          </div>
-                          <div className={styles.scaleUnitHorizontal1}>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
-                            </div>
-                            <div className={styles.top}>
-                              <img className={styles.aspectRatioIcon} alt="" />
+                            <div className={styles.scaleUnitHorizontal1}>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
+                              <div className={styles.top}>
+                                <img
+                                  className={styles.aspectRatioIcon}
+                                  alt=""
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className={styles.textContent}>
-                      <div className={styles.label}>
-                        <div className={styles.info13}>
-                          <p className={styles.p}>
-                            <span className={styles.jetAirEconomy1}>
-                              <b>
-                                {
-                                  selectedOrder.penerbanganBerangkat.maskapai
-                                    .nama_maskapai
-                                }
-                              </b>
-                            </span>
-                          </p>
-                          <p className={styles.blankLine}>
-                            <span className={styles.jetAirEconomy1}>
-                              <span className={styles.blankLine2}>&nbsp;</span>
-                            </span>
-                          </p>
-                          <p className={styles.p}>
-                            <span>
+                      <div className={styles.textContent}>
+                        <div className={styles.label}>
+                          <div className={styles.info13}>
+                            <p className={styles.p}>
                               <span className={styles.jetAirEconomy1}>
-                                <b>Informasi:</b>
+                                <b>
+                                  {
+                                    selectedOrder.penerbanganBerangkat.maskapai
+                                      .nama_maskapai
+                                  }
+                                </b>
                               </span>
-                            </span>
-                          </p>
-                          <p className={styles.penumpang1MrHarryPotter}>
-                            <span>
-                              <span className={styles.penumpang1Mr}>
-                                Nama Lengkap :{" "}
-                                {selectedOrder.order.nama_lengkap}
+                            </p>
+                            <p className={styles.blankLine}>
+                              <span className={styles.jetAirEconomy1}>
+                                <span className={styles.blankLine2}>
+                                  &nbsp;
+                                </span>
                               </span>
-                            </span>
-                          </p>
+                            </p>
+                            <p className={styles.p}>
+                              <span>
+                                <span className={styles.jetAirEconomy1}>
+                                  <b>Informasi:</b>
+                                </span>
+                              </span>
+                            </p>
+                            <p className={styles.penumpang1MrHarryPotter}>
+                              <span>
+                                <span className={styles.penumpang1Mr}>
+                                  Nama Lengkap :{" "}
+                                  {selectedOrder.order.nama_lengkap}
+                                </span>
+                              </span>
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <img className={styles.dividerIcon} alt="" src="/divider.svg" />
-                <div className={styles.info14}>
-                  <div className={styles.jadwal1}>
-                    <div className={styles.plane1}>
-                      {selectedOrder.tiketBerangkat.bandaraTujuan.nama_bandara}
-                    </div>
-                    <div className={styles.tujuan}>
-                      <p className={styles.p}>
-                        <b>{selectedOrder.order.jam_kedatangan}</b>
-                      </p>
-                      <p className={styles.p}>
-                        {selectedOrder.order.tanggal_kedatangan}
-                      </p>
-                    </div>
-                  </div>
-                  <div className={styles.status3}>
-                    <b className={styles.berangkat}>Kedatangan</b>
-                  </div>
-                </div>
-                <img className={styles.dividerIcon} alt="" src="/divider.svg" />
-                <div className={styles.harga}>
-                  <div className={styles.label}>
-                    <div className={styles.label3}>
-                      <b className={styles.rincianBayar}>Rincian Harga</b>
-                    </div>
-                  </div>
-                  <div className={styles.listItem2}>
-                    <div className={styles.label4}>
-                      <div className={styles.rincianBayar}>Harga Tiket</div>
-                    </div>
-                    <div className={styles.suffix}>
-                      <div className={styles.tujuan}>
+                  <img
+                    className={styles.dividerIcon}
+                    alt=""
+                    src="/divider.svg"
+                  />
+                  <div className={styles.info14}>
+                    <div className={styles.jadwal1}>
+                      <div className={styles.plane1}>
                         {
-                          selectedOrder.penerbanganBerangkat.maskapai
-                            .harga_tiket
+                          selectedOrder.tiketBerangkat.bandaraTujuan
+                            .nama_bandara
                         }
                       </div>
+                      <div className={styles.tujuan}>
+                        <p className={styles.p}>
+                          <b>{selectedOrder.order.jam_kedatangan}</b>
+                        </p>
+                        <p className={styles.p}>
+                          {selectedOrder.order.tanggal_kedatangan}
+                        </p>
+                      </div>
+                    </div>
+                    <div className={styles.status3}>
+                      <b className={styles.berangkat}>Kedatangan</b>
                     </div>
                   </div>
-                  <div className={styles.listItem2}>
-                    <div className={styles.content}>
-                      <div className={styles.label5}>
-                        <div className={styles.rincianBayar}>
-                          Jumlah Penumpang
+                  <img
+                    className={styles.dividerIcon}
+                    alt=""
+                    src="/divider.svg"
+                  />
+                  <div className={styles.harga}>
+                    <div className={styles.label}>
+                      <div className={styles.label3}>
+                        <b className={styles.rincianBayar}>Rincian Harga</b>
+                      </div>
+                    </div>
+                    <div className={styles.listItem2}>
+                      <div className={styles.label4}>
+                        <div className={styles.rincianBayar}>Harga Tiket</div>
+                      </div>
+                      <div className={styles.suffix}>
+                        <div className={styles.tujuan}>
+                          {
+                            selectedOrder.penerbanganBerangkat.maskapai
+                              .harga_tiket
+                          }
                         </div>
                       </div>
                     </div>
-                    <div className={styles.suffix}>
-                      <div className={styles.tujuan}>
-                        {selectedOrder.order.jumlah_penumpang}
+                    <div className={styles.listItem2}>
+                      <div className={styles.content}>
+                        <div className={styles.label5}>
+                          <div className={styles.rincianBayar}>
+                            Jumlah Penumpang
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.suffix}>
+                        <div className={styles.tujuan}>
+                          {selectedOrder.order.jumlah_penumpang}
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.total}>
+                      <div className={styles.listItem4}>
+                        <div className={styles.label6}>
+                          <b className={styles.label7}>Total</b>
+                        </div>
+                        <div className={styles.total1}>
+                          <b className={styles.harga3}>
+                            {selectedOrder.totalHargaTiket}
+                          </b>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className={styles.total}>
-                    <div className={styles.listItem4}>
-                      <div className={styles.label6}>
-                        <b className={styles.label7}>Total</b>
-                      </div>
-                      <div className={styles.total1}>
-                        <b className={styles.harga3}>
-                          {selectedOrder.totalHargaTiket}
-                        </b>
-                      </div>
+                  {selectedOrder.order.status_pembayaran === "unpaid" && (
+                    <div className={styles.bayarButtonWrapper}>
+                      <Button variant="primary" onClick={handleBayarClick}>
+                        Bayar
+                      </Button>
                     </div>
-                  </div>
+                  )}
                 </div>
-                {selectedOrder.order.status_pembayaran === "unpaid" && (
-                  <div className={styles.bayarButtonWrapper}>
-                    <Button variant="primary" onClick={handleBayarClick}>
-                      Bayar
-                    </Button>
-                  </div>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
