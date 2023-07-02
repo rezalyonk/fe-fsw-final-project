@@ -1,22 +1,18 @@
 .FormcariPenerbangan {
-    padding: 50px;
-    margin: 50px;
-    margin-left: 700px;
-    margin-top: 210px;
-}
-
-.frm {
     width: 657px;
     height: 127px;
     border: 2px solid #F2F2F2;
     border-radius: 8px;
     padding: 10px, 16px, 10px, 16px;
     gap: 12px;
+    margin-top: 13px;
     background-color: #FFFFFF;
-    margin-bottom: 11px;
     padding-top: 10px;
-    margin-top: 78vh;
-    margin-left: 40vh;
+}
+
+.frm {
+    margin-top: 10vh;
+    margin-left: 59vh;
 }
 
 .airline {
@@ -137,4 +133,10 @@
 
 .br, .if, .br2, .kpr {
     margin-top: 15px;
+}
+
+@media (max-width: 960px) {
+    .frm {
+        margin-left: 19vh;
+    }
 }
