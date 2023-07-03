@@ -1,3 +1,12 @@
+#Final Project Independent Study Kampus Merdeka - Binar Academy - Fullstack
+
+# Front-End Member
+
+- Reza Lyon Kurniawan
+- Roy Hanafi
+- Fahrur Rozi
+- Ryan Lisdianto Fajar
+
 ## Run Locally in Terminal
 
 Install Node Module
