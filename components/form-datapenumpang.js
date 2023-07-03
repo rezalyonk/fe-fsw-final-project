@@ -28,7 +28,19 @@ export default function DataDiri() {
       setMessage("Login terlebih dahulu");
       router.push("/login");
     }
-  }, [router]);
+
+    // Mendapatkan query ID tiket dari URL
+    const { id_tiket } = router.query;
+    console.log(id_tiket);
+
+    // Jika ada ID tiket, isi input id_penerbangan dengan ID tiket
+    if (id_tiket) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        id_penerbangan: id_tiket,
+      }));
+    }
+  }, [router.query]);
 
   const handleChange = (e) => {
     setFormData({
@@ -88,6 +100,7 @@ export default function DataDiri() {
             name="id_penerbangan"
             value={formData.id_penerbangan}
             onChange={handleChange}
+            disabled
           />
         </label>
         <br />
