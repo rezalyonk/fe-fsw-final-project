@@ -216,13 +216,9 @@ const FlightSearchForm = () => {
       {responseData.success && (
         <div className={style.frm}>
           {responseData.data.map((flight, index) => (
-            <div key={index}>
+            <div key={index} className={style.FormcariPenerbangan}>
               <div className={style.airline}>
-                <img
-                  className={style.iconthumbnail}
-                  src="/Thumbnail.png"
-                  alt="Thumbnail"
-                />
+              <MdFlightTakeoff className={style.iconthumbnail}/>
                 <h1 className={style.testh1}>
                   {flight.airline.nama_maskapai} -{" "}
                   {flight.airline.tipe_maskapai}
