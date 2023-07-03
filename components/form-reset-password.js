@@ -4,15 +4,15 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 const FormResetPassword = () => {
-  const [resetToken, setResetToken] = useState("");
+  const [otp, setotp] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const router = useRouter();
 
-  const handleResetTokenChange = (e) => {
-    setResetToken(e.target.value);
+  const handleotpChange = (e) => {
+    setotp(e.target.value);
   };
 
   const handleNewPasswordChange = (e) => {
@@ -35,7 +35,7 @@ const FormResetPassword = () => {
     try {
       // Make a POST request to the reset password API endpoint
       const response = await axios.post("/api/reset-password", {
-        resetToken,
+        otp,
         newPassword,
       });
 
@@ -53,15 +53,15 @@ const FormResetPassword = () => {
   return (
     <form className={styles.inner} onSubmit={handleSubmit}>
       <div className={styles.form}>
-        <div className={styles.token}>Token</div>
+        <div className={styles.token}>Kode OTP</div>
         <input
           className={styles.input}
-          id="resetToken"
-          value={resetToken}
-          onChange={handleResetTokenChange}
+          id="otp"
+          value={otp}
+          onChange={handleotpChange}
           required
           type="text"
-          placeholder="Masukkan Token"
+          placeholder="Masukkan kode OTP"
         />
       </div>
       <div className={styles.form}>

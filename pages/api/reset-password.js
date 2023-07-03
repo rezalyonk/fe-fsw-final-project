@@ -2,14 +2,14 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { resetToken, newPassword } = req.body;
+    const { otp, newPassword } = req.body;
 
     try {
       // Make a POST request to the reset password API endpoint
       const response = await axios.post(
-        "https://mang-eak-production.up.railway.app/v1/api/reset-password",
+        "https://mang-eak-production.up.railway.app/v1/api/reset-password-otp",
         {
-          resetToken,
+          otp,
           newPassword,
         }
       );
