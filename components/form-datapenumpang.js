@@ -76,7 +76,6 @@ export default function DataDiri() {
 
   return (
     <div className={styles.container}>
-      <h1>Form Data Diri</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.masuk}>
           <b>Isi Data Penumpang</b>

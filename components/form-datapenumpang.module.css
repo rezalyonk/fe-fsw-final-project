@@ -1,7 +1,9 @@
 .container {
   display: flex;
   justify-content: center;
+  width: auto;
 }
+
 .masuk {
   display: flex;
   flex-direction: row;
@@ -15,7 +17,6 @@
   font-family: "Poppins";
   font-weight: 500;
   font-size: 16px;
-
   width: 486px;
   height: 40px;
   flex: none;
@@ -23,6 +24,7 @@
   align-self: stretch;
   flex-grow: 0;
 }
+
 .form {
   border: 1px solid gray;
   padding: 20px;
@@ -62,6 +64,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .formbutton:hover {
   background-color: #4d2771;
   color: white;
@@ -86,3 +89,30 @@
   background-color: #ff5252;
   color: #ffffff;
 }
+
+/* Media queries for tablet screens */
+@media (max-width: 768px) {
+  .masuk,
+  .form,
+  .forminput {
+    width: 100%;
+  }
+  
+  .form {
+    max-width: 600px;
+  }
+}
+
+/* Media queries for smartphone screens */
+@media (max-width: 480px) {
+  .masuk,
+  .form,
+  .forminput {
+    width: 100%;
+  }
+  
+  .form {
+    max-width: 400px;
+  }
+}
+

@@ -3,18 +3,22 @@
   }
   .icon{
     color: blueviolet;
+    margin-top: 80px;
+    margin-left: 5px;
   }
   .span{
     font-weight: bold;
     font-style: italic;
     color: blueviolet;
     margin-left: 5px;
+    margin-top: 78px;
   }
   .span2{
     font-weight: bold;
     font-style: italic;
     color: gray;
     margin-left: 5px;
+    margin-top: 78px;
   
   }
   .proses{
@@ -28,5 +32,14 @@
       gap: 10px;
       padding-left: 75px;
       box-sizing: border-box;
+    }
+    .span{
+      margin-top: 8px;
+    }
+    .span2{
+      margin-top: 8px;
+    }
+    .icon{
+      margin-top: 8px;
     }
   }
