@@ -1,11 +1,18 @@
 #Final Project Independent Study Kampus Merdeka - Binar Academy - Fullstack
 
-# Front-End Member
-
+## Front-End Member
 - Reza Lyon Kurniawan
 - Roy Hanafi
 - Fahrur Rozi
 - Ryan Lisdianto Fajar
+
+## Back-End Member
+- Irfan Choiruddin Anwar
+- Ari Yogi
+- Mabertha Asasiyah Berliana
+- Alif Kurniawan
+Kalian bisa klik ➡️ [Backend](https://github.com/Irfanca1/BE-FSW-Final-Project.git)
+
 
 ## Run Locally in Terminal
 
