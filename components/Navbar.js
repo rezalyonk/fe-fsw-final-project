@@ -12,10 +12,15 @@ import { IoLogoWhatsapp } from "react-icons/io";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false); // State untuk mengontrol visibilitas dropdown menu
+  const [showBookingDropdown, setShowBookingDropdown] = useState(false); // State untuk mengontrol visibilitas dropdown menu Booking
+  const [showLoginDropdown, setShowLoginDropdown] = useState(false); // State untuk mengontrol visibilitas dropdown menu Login
 
-  const handleDropdown = () => {
-    setShowDropdown(!showDropdown); // Toggle visibilitas dropdown menu
+  const handleBookingDropdown = () => {
+    setShowBookingDropdown(!showBookingDropdown); // Toggle visibilitas dropdown menu Booking
+  };
+
+  const handleLoginDropdown = () => {
+    setShowLoginDropdown(!showLoginDropdown); // Toggle visibilitas dropdown menu Login
   };
 
   useEffect(() => {
@@ -54,9 +59,28 @@ const Navbar = () => {
           <Link href="/" className="hover:text-green-700">
             Home
           </Link>
-          <Link href="/booking" className="hover:text-green-700">
-            Booking
-          </Link>
+          <div className="relative">
+            <button
+              onClick={handleBookingDropdown} // Mengatur visibilitas dropdown menu Booking saat ikon diklik
+              className="hover:text-green-700"
+            >
+              Booking
+            </button>
+            {showBookingDropdown && (
+              <div className="absolute right-0 mt-2 py-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
+                <Link href="/booking">
+                  <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    One Way
+                  </span>
+                </Link>
+                <Link href="/roundTrip">
+                  <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Two Way
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
           <Link href="/" className="hover:text-green-700">
             About
           </Link>
@@ -70,11 +94,11 @@ const Navbar = () => {
             <div className="relative">
               <button
                 className="hidden md:block border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white"
-                onClick={handleDropdown} // Mengatur visibilitas dropdown menu saat ikon diklik
+                onClick={handleLoginDropdown} // Mengatur visibilitas dropdown menu Login saat ikon diklik
               >
                 <MdFlightTakeoff size={23} />
               </button>
-              {showDropdown && (
+              {showLoginDropdown && (
                 <div className="absolute right-0 mt-2 py-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
                   <Link href="/akun">
                     <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
@@ -84,6 +108,11 @@ const Navbar = () => {
                   <Link href="/history">
                     <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                       History
+                    </span>
+                  </Link>
+                  <Link href="/notifikasi">
+                    <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                      Notifikasi
                     </span>
                   </Link>
                 </div>
@@ -130,68 +159,76 @@ const Navbar = () => {
         <Link href="/" className="hover:text-green-700 p-4">
           Home
         </Link>
-        <Link href="/" className="hover:text-green-700 p-4">
-          Booking
-        </Link>
+        <div className="relative">
+          <button
+            onClick={handleBookingDropdown} // Mengatur visibilitas dropdown menu Booking saat ikon diklik
+            className="hover:text-green-700 p-4"
+          >
+            Booking
+          </button>
+          {showBookingDropdown && (
+            <div className="absolute right-0 mt-2 py-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
+              <Link href="/booking">
+                <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  One Way
+                </span>
+              </Link>
+              <Link href="/roundTrip">
+                <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Two Way
+                </span>
+              </Link>
+            </div>
+          )}
+        </div>
         <Link href="/" className="hover:text-green-700 p-4">
           About
         </Link>
         <Link href="/" className="hover:text-green-700 p-4">
           Service
         </Link>
-
-        <div className="flex mx-auto gap-5 item-center">
-          <Link href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank">
-            <BsFacebook
-              size={25}
-              className="text-green-600 hover:-translate-y-1 duration-300"
-            />
-          </Link>
-          <Link href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank">
-            <AiFillInstagram
-              size={25}
-              className="text-green-600 hover:-translate-y-1 duration-300"
-            />
-          </Link>
-          <Link href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank">
-            <BsTwitter
-              size={25}
-              className="text-green-600 hover:-translate-y-1 duration-300"
-            />
-          </Link>
-          <Link href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank">
-            <IoLogoWhatsapp
-              size={25}
-              className="text-green-600 hover:-translate-y-1 duration-300"
-            />
-          </Link>
-        </div>
-
-        <div className="flex flex-col mx-auto gap-5 mt-5 item-center">
-          <div className="bg-green-600 w-[170px] h-[1px]"></div>
-        </div>
-
-        <div className="p-4 mx-auto flex gap-5">
-          {isLoggedIn && (
+        {isLoggedIn && (
+          <div className="relative">
             <button
-              className="md:hidden flex flex-col  border border-green-600 px-4 py-1 rounded-md text-green-600 bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600"
-              onClick={handleLogout}
+              className="border border-green-600 px-4 py-1 rounded-md text-green-600 hover:bg-green-600 hover:text-white p-4"
+              onClick={handleLoginDropdown} // Mengatur visibilitas dropdown menu Login saat ikon diklik
             >
-              Logout
+              <MdFlightTakeoff size={23} />
             </button>
-          )}
-
-          {!isLoggedIn && (
-            <Link href="/login">
-              <button className="md:hidden flex flex-col  border border-green-600 px-4 py-1 rounded-md text-green-600 bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600">
-                Login
-              </button>
-            </Link>
-          )}
-
-          <button className="duration-300 md:hidden flex flex-col  border border-green-600 px-6 py-1 rounded-md text-green-600 bg-green-600 text-white hover:bg-white hover:border-white hover:text-green-600">
-            Cart
-          </button>
+            {showLoginDropdown && (
+              <div className="absolute right-0 mt-2 py-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
+                <Link href="/akun">
+                  <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Akun
+                  </span>
+                </Link>
+                <Link href="/history">
+                  <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    History
+                  </span>
+                </Link>
+                <Link href="/notifikasi">
+                  <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Notifikasi
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
+        {!isLoggedIn && (
+          <Link href="/login" className="hover:text-green-700 p-4">
+            Login
+          </Link>
+        )}
+        <Link href="/cart" className="hover:text-green-700 p-4">
+          <AiOutlineShoppingCart size={23} />
+        </Link>
+        <div className="flex gap-3 items-center p-4">
+          <BsFacebook size={20} className="hover:text-green-700" />
+          <AiFillInstagram size={20} className="hover:text-green-700" />
+          <BsTwitter size={20} className="hover:text-green-700" />
+          <IoLogoWhatsapp size={20} className="hover:text-green-700" />
         </div>
       </div>
     </div>
