@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import styles from './index.module.css'
+import Navbar from '@/components/Navbar';
 
 const Berangkat = () => {
   const router = useRouter();
@@ -36,14 +38,17 @@ const Berangkat = () => {
   };
 
   return (
-    <div>
-      <h1>Pilih Tiket Penerbangan Berangkat</h1>
+    <div className={styles.container}>
+      <Navbar/>
+      <div className={styles.card}>
+      <h1 className={styles.judul}>Pilih Tiket Penerbangan Berangkat</h1>
+      <div className={styles.hasil}>
       {listPenerbangan.length > 0 ? (
-        <ul>
+        <ul >
           {listPenerbangan.map((penerbangan) => (
-            <li key={penerbangan.id}>
+            <li className={styles.hasil2} key={penerbangan.id}>
               {penerbangan.maskapai.nama_maskapai} - {penerbangan.harga_tiket}
-              <button onClick={() => handleSelectPenerbangan(penerbangan.id)}>
+              <button className={styles.btn} onClick={() => handleSelectPenerbangan(penerbangan.id)}>
                 Pilih
               </button>
             </li>
@@ -52,6 +57,8 @@ const Berangkat = () => {
       ) : (
         <p>Tidak ada penerbangan tersedia untuk tanggal tersebut.</p>
       )}
+      </div>
+      </div>
     </div>
   );
 };

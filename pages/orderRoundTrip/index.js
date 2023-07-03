@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { getOrderRoundTrip } from "../api/orderRoundTrips";
 import axios from "axios";
 import Cookies from "js-cookie";
+import styles from './index.module.css'
+import Navbar from "@/components/Navbar";
 
 const OrderRoundTrip = ({ accessToken }) => {
   const router = useRouter();
@@ -96,25 +98,25 @@ const OrderRoundTrip = ({ accessToken }) => {
   }
 
   return (
-    <div>
-      <h1>Order Round Trip</h1>
-      {/* Display round trip details */}
-      <p>Departure:</p>
-      <p>ID Penerbangan: {roundTripDetails.departure.id_penerbangan}</p>
-      {/* Display other details */}
-      {/* ... */}
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <Navbar/>
+
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <h1 className={styles.judul}>Order Round Trip</h1>
+      
         <div>
-          <label htmlFor="idPenerbanganPergi">ID Penerbangan Pergi:</label>
-          <input
-            type="text"
-            id="idPenerbanganPergi"
-            value={idPenerbanganPergi}
-            disabled
-          />
-        </div>
-        <div>
-          <label htmlFor="idPenerbanganPulang">ID Penerbangan Pulang:</label>
+          <p className={styles.formlabel} >ID Penerbangan: {roundTripDetails.departure.id_penerbangan}</p>
+            <label className={styles.formlabel} htmlFor="idPenerbanganPergi">ID Penerbangan Pergi:</label>
+            <input
+              type="text"
+              id="idPenerbanganPergi"
+              value={idPenerbanganPergi}
+              disabled
+            />
+          </div>
+          <tb/>
+          <div>
+          <label className={styles.formlabel} htmlFor="idPenerbanganPulang">ID Penerbangan Pulang:</label>
           <input
             type="text"
             id="idPenerbanganPulang"
@@ -122,65 +124,65 @@ const OrderRoundTrip = ({ accessToken }) => {
             disabled
           />
         </div>
-        <label>
-          Nama Lengkap:
-          <input
+        <label className={styles.formlabel}>
+         Nama Lengkap:
+            <input className={styles.forminput}
             type="text"
             value={namaLengkap}
             onChange={(e) => setNamaLengkap(e.target.value)}
             required
           />
-        </label>
-        <label>
+        </label >
+        <label className={styles.formlabel}>
           Nama Keluarga:
-          <input
+          <input className={styles.forminput}
             type="text"
             value={namaKeluarga}
             onChange={(e) => setNamaKeluarga(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className={styles.formlabel}>
           Nomor Telepon:
-          <input
+          <input className={styles.forminput}
             type="text"
             value={nomorTelepon}
             onChange={(e) => setNomorTelepon(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className={styles.formlabel}>
           Email:
-          <input
+          <input className={styles.forminput}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className={styles.formlabel}>
           Kursi:
-          <input
+          <input className={styles.forminput}
             type="text"
             value={kursi}
             onChange={(e) => setKursi(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className={styles.formlabel}>
           Jumlah Penumpang:
-          <input
+          <input className={styles.forminput}
             type="number"
             value={jumlahPenumpang}
             onChange={(e) => setJumlahPenumpang(e.target.value)}
             required
           />
         </label>
-        <button type="submit" disabled={loading}>
+        <button className={styles.btn} type="submit" disabled={loading}>
           {loading ? "Placing Order..." : "Place Order"}
         </button>
-      </form>
-    </div>
+        </form>
+      </div>
   );
 };
 

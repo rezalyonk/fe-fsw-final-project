@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import styles from './index.module.css'
+import { MdFlightTakeoff,MdFlightLand } from "react-icons/md";
+import Navbar from '@/components/Navbar';
 
 const RoundTrip = () => {
   const router = useRouter();
@@ -29,30 +32,38 @@ const RoundTrip = () => {
   };
 
   return (
-    <div>
-      <h1>Form Pencarian Penerbangan Pulang-Pergi</h1>
+    <div className={styles.container}>
+       <Navbar/>
+      <div className={styles.card}>
+      <h1 className={styles.judul}>Pilih Jadwal Penerbangan RoundTrip spesial di <span className={styles.span}>FlyTicket</span> </h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Kota Awal:
-          <input
-            type="text"
-            value={kotaAwal}
-            onChange={(e) => setKotaAwal(e.target.value)}
-          />
-        </label>
+        <div className={styles.kota}>
+        
+          <label className={styles.kotaAwal}>
+          <MdFlightTakeoff size={25} className={styles.icon}/>
+            From:
+            <input className={styles.input}
+              type="text"
+              value={kotaAwal}
+              onChange={(e) => setKotaAwal(e.target.value)}
+            />
+          </label>
+          <br />
+          <label className={styles.kotaAwal}>
+          <MdFlightLand size={25} className={styles.icon}/>
+            To:
+            <input  className={styles.input}
+              type="text"
+              value={kotaTujuan}
+              onChange={(e) => setKotaTujuan(e.target.value)}
+            />
+          </label>
+        </div>
         <br />
+        <div className={styles.tanggal}>
         <label>
-          Kota Tujuan:
-          <input
-            type="text"
-            value={kotaTujuan}
-            onChange={(e) => setKotaTujuan(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Tanggal Berangkat:
-          <input
+          Daparture:
+          <input className={styles.input}
             type="date"
             value={tanggalBerangkat}
             onChange={(e) => setTanggalBerangkat(e.target.value)}
@@ -60,16 +71,18 @@ const RoundTrip = () => {
         </label>
         <br />
         <label>
-          Tanggal Pulang:
-          <input
+        Return:
+          <input className={styles.input}
             type="date"
             value={tanggalPulang}
             onChange={(e) => setTanggalPulang(e.target.value)}
           />
         </label>
+        </div>
         <br />
-        <button type="submit">Cari</button>
+        <button className={styles.btn} type="submit">Cari Tiket</button>
       </form>
+      </div>
     </div>
   );
 };

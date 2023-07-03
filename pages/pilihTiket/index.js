@@ -79,7 +79,6 @@ const PilihTiket = () => {
             </div>
           </div>
           <div className={styles.cnt11}>
-
             <div className={styles.doble2}>
               <MdFlightTakeoff className={styles.icon}/>
               <p>{jam_berangkat}.00</p>
