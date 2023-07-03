@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import styles from './index.module.css'
+import { MdFlightTakeoff,MdFlightLand } from "react-icons/md";
+import Navbar from "@/components/Navbar";
+import { TbArrowsRightLeft } from "react-icons/tb";
 
 const DetailPilihPenerbangan = () => {
   const router = useRouter();
@@ -44,42 +48,80 @@ const DetailPilihPenerbangan = () => {
   const { departure, return: returnFlight } = detailPenerbangan;
 
   return (
-    <div>
-      <h1>Detail Pilih Penerbangan</h1>
-      <h2>Penerbangan Pergi</h2>
+    <div className={styles.container}>
+      <Navbar/>
+      <h1 className={styles.judul}>Detail Pilih Penerbangan</h1>
+      <div className={styles.con1}>
+      <div className={styles.con2}>
+      <div className={styles.card}>
+      <h2 className={styles.h2}>Penerbangan Pergi</h2>
       <p>
-        ID: {departure.id_penerbangan}
-        <br />
-        Tanggal Berangkat: {departure.tanggal_berangkat}
-        <br />
-        Tanggal Kedatangan: {departure.tanggal_kedatangan}
-        <br />
-        Bandara Asal: {departure.bandaraAwal.nama_bandara}
-        <br />
-        Bandara Tujuan: {departure.bandaraTujuan.nama_bandara}
-        <br />
-        Maskapai: {departure.maskapai.nama_maskapai}
-        <br />
+        <div className={styles.maskapai}>
+          ID: {departure.id_penerbangan}
+          <br />
+          Maskapai: {departure.maskapai.nama_maskapai}
+          <br />
+        </div>
+        <div className={styles.cnt11}>
+          <div className={styles.doble2}>
+          <MdFlightTakeoff size={25} className={styles.icon}/>
+            {departure.bandaraAwal.nama_bandara}
+          <br />
+            {departure.tanggal_berangkat}
+          </div>
+          <div className={styles.doble2}>
+            <MdFlightLand size={25} className={styles.icon}/>
+            {departure.bandaraTujuan.nama_bandara}
+          <br />
+            {departure.tanggal_kedatangan}
+           <br />
+          </div>
+
+        </div>
+        
         Harga Tiket: {departure.maskapai.harga_tiket}
       </p>
-      <h2>Penerbangan Pulang</h2>
+      </div></div>
+
+      <div className={styles.icons}>
+            <TbArrowsRightLeft size={30} className={styles.icon} />
+      </div>
+
+
+      <div className={styles.con2}>
+      <div className={styles.card}>
+      <h2 className={styles.h2}>Penerbangan Pulang</h2>
       <p>
+        <div className={styles.maskapai}>
         ID: {returnFlight.id_penerbangan}
-        <br />
-        Tanggal Berangkat: {returnFlight.tanggal_berangkat}
-        <br />
-        Tanggal Kedatangan: {returnFlight.tanggal_kedatangan}
-        <br />
-        Bandara Asal: {returnFlight.bandaraAwal.nama_bandara}
-        <br />
-        Bandara Tujuan: {returnFlight.bandaraTujuan.nama_bandara}
-        <br />
+        <br/>
         Maskapai: {returnFlight.maskapai.nama_maskapai}
-        <br />
+        <br /> 
+        </div>
+        <div className={styles.cnt11}>
+          <div className={styles.doble2}>
+          <MdFlightTakeoff size={25} className={styles.icon}/>
+          {returnFlight.bandaraAwal.nama_bandara}
+          <br />
+          {returnFlight.tanggal_berangkat}
+          </div>
+          <div className={styles.doble2}>
+            <MdFlightLand size={25} className={styles.icon}/>
+          {returnFlight.bandaraTujuan.nama_bandara}
+          <br />
+          {returnFlight.tanggal_kedatangan}
+           <br />
+          </div>
+
+        </div>
+        
         Harga Tiket: {returnFlight.maskapai.harga_tiket}
       </p>
-      <button onClick={handleCheckout}>Checkout</button>
-    </div>
+      </div></div>
+      </div>
+      <div className={styles.con2}>
+      <button className={styles.btn} onClick={handleCheckout}>Checkout</button>
+    </div></div>
   );
 };
 
