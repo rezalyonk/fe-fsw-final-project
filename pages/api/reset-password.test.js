@@ -8,7 +8,7 @@ describe("reset-password handler", () => {
     const req = {
       method: "POST",
       body: {
-        resetToken: "abc123",
+        otp: "abc123",
         newPassword: "newPassword123",
       },
     };
@@ -30,9 +30,9 @@ describe("reset-password handler", () => {
     await handler(req, res);
 
     expect(axios.post).toHaveBeenCalledWith(
-      "https://mang-eak-production.up.railway.app/v1/api/reset-password",
+      "https://mang-eak-production.up.railway.app/v1/api/reset-password-otp",
       {
-        resetToken: "abc123",
+        otp: "abc123",
         newPassword: "newPassword123",
       }
     );
@@ -44,7 +44,7 @@ describe("reset-password handler", () => {
     const req = {
       method: "POST",
       body: {
-        resetToken: "abc123",
+        otp: "abc123",
         newPassword: "newPassword123",
       },
     };

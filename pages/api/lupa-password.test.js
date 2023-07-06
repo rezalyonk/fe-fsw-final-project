@@ -29,7 +29,7 @@ describe("lupa-password handler", () => {
     await handler(req, res);
 
     expect(axios.post).toHaveBeenCalledWith(
-      "https://mang-eak-production.up.railway.app/v1/api/forgotPassword",
+      "https://mang-eak-production.up.railway.app/v1/api/forgot-password-otp",
       {
         email: "test@example.com",
       }
