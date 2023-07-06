@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Header from "../../components/header";
 import styles from "./index.module.css";
 import axios from "axios";
-
 const Notifikasi = () => {
   const router = useRouter();
 
@@ -52,51 +51,54 @@ const Notifikasi = () => {
         prefixIcon="/prefix-icon.svg"
         onHomeButtonClick={onHomeButtonClick}
       />
-      
       {notifications.map((notification) => (
-        <div class="container">
         <div className={styles.detailouter} key={notification.id}>
           <div className={styles.frameinnder}>
             <div className={styles.data}>
-              <div className={styles.notif}>
+              <div className={styles.konten}>
+                <div className={styles.divider} />
                 <div className={styles.konten}>
-                  <div className={styles.listNotif}>
-                    <div className={styles.list}>
-                      <div className={styles.divider} />
-                      <div className={styles.notif1}>
+                  <div className={styles.notifikasiheader}>
+                    <div className={styles.iconnotifikasi}>
+                      <div className={styles.materialSymbolscircleNotif}>
                         <img
-                          className={styles.materialSymbolscircleNotifiIcon}
+                          className={styles.vectorIcon}
                           alt=""
-                          src="/materialsymbolscirclenotificationssharp.svg"
+                          src="/vector1.svg"
                         />
-                        <div className={styles.text}>
-                          <div className={styles.ket}>
-                            <div className={styles.promosi}>
-                              {notification.judul}
-                            </div>
-                            <div className={styles.maret1404}>
-                              {notification.tanggal}, {notification.jam}
-                            </div>
-                            <div
-                              className={`${styles.ketChild} ${
-                                notification.judul === "Pembayaran Berhasil"
-                                  ? styles.hijau
-                                  : notification.judul === "Pemesanan Berhasil"
-                                  ? styles.merah
-                                  : ""
-                              }`}
-                            />
-                          </div>
-                          <div className={styles.terdapatPerubahanPada}>
-                            {notification.pesan}
-                          </div>
-                          <div className={styles.syaratDanKetentuan}>
-                            {notification.pesanTambahan && (
-                              <p>{notification.pesanTambahan}</p>
-                            )}
-                          </div>
-                        </div>
                       </div>
+                      <div className={styles.notifikasi1}>
+                        {notification.judul}
+                      </div>
+                    </div>
+                    <div className={styles.datenotifikasi}>
+                      <div className={styles.notifikasi1}>
+                        {notification.tanggal}, {notification.jam}
+                      </div>
+                      <div
+                        className={`${styles.datenotifikasiChild} ${
+                          notification.judul === "Pembayaran Berhasil"
+                            ? styles.hijau
+                            : notification.judul === "Pemesanan Berhasil"
+                            ? styles.merah
+                            : ""
+                        }`}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.info}>
+                    <div className={styles.terdapatPerubahanPadaContainer}>
+                      <p className={styles.terdapatPerubahanPada}>
+                        {notification.pesan}
+                      </p>
+                      <p className={styles.terdapatPerubahanPada}>
+                        Cek jadwal perjalanan Anda disini!
+                      </p>
+                    </div>
+                    <div className={styles.syaratDanKetentuan}>
+                      {notification.pesanTambahan && (
+                        <p>{notification.pesanTambahan}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -104,10 +106,8 @@ const Notifikasi = () => {
             </div>
           </div>
         </div>
-        </div>
       ))}
     </div>
-
   );
 };
 
