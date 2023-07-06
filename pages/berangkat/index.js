@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styles from './index.module.css'
-import Navbar from '@/components/Navbar';
+import styles from "./index.module.css";
+import Navbar from "@/components/Navbar";
 
 const Berangkat = () => {
   const router = useRouter();
@@ -39,25 +39,41 @@ const Berangkat = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar/>
+      <Navbar />
       <div className={styles.card}>
-      <h1 className={styles.judul}>Pilih Tiket Penerbangan Berangkat</h1>
-      <div className={styles.hasil}>
-      {listPenerbangan.length > 0 ? (
-        <ul >
-          {listPenerbangan.map((penerbangan) => (
-            <li className={styles.hasil2} key={penerbangan.id}>
-              {penerbangan.maskapai.nama_maskapai} - {penerbangan.harga_tiket}
-              <button className={styles.btn} onClick={() => handleSelectPenerbangan(penerbangan.id)}>
-                Pilih
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Tidak ada penerbangan tersedia untuk tanggal tersebut.</p>
-      )}
-      </div>
+        <h1 className={styles.judul}>Pilih Tiket Penerbangan Berangkat</h1>
+        <div className={styles.hasil}>
+          {listPenerbangan.length > 0 ? (
+            <ul>
+              {listPenerbangan.map((penerbangan) => (
+                <li className={styles.hasil2} key={penerbangan.id}>
+                  {penerbangan.maskapai.nama_maskapai} -{" "}
+                  {penerbangan.maskapai.harga_tiket}
+                  <div>
+                    {penerbangan.bandaraAwal.nama_bandara},{" "}
+                    {penerbangan.bandaraAwal.kota}
+                    {":"} {penerbangan.jam_berangkat}
+                    {".00"}
+                    {"WIB"} {"---"}
+                    {"---"} {penerbangan.bandaraTujuan.nama_bandara},{" "}
+                    {penerbangan.bandaraTujuan.kota}
+                    {":"} {penerbangan.jam_kedatangan}
+                    {".00"} {"WIB"}
+                  </div>
+                  <div></div>
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleSelectPenerbangan(penerbangan.id)}
+                  >
+                    Pilih
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>Tidak ada penerbangan tersedia untuk tanggal tersebut.</p>
+          )}
+        </div>
       </div>
     </div>
   );
