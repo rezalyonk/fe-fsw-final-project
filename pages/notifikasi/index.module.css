@@ -160,9 +160,11 @@
     box-sizing: border-box;
   }
 }
+
 .merah {
   background-color: #fa2c5a;
 }
+
 .hijau {
   background-color: #73ca5c;
 }
