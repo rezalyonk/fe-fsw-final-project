@@ -1,87 +1,115 @@
 .divider {
-  align-self: stretch;
   position: relative;
   background-color: #e5e5e5;
+  width: 328px;
   height: 1px;
+  display: none;
 }
-.vectorIcon {
+.materialSymbolscircleNotifiIcon {
   position: relative;
-  width: 20px;
-  height: 20px;
-}
-.materialSymbolscircleNotifi {
+  width: 24px;
+  height: 24px;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  padding: 2px;
-  align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
 }
-.notifikasi1 {
+.promosi {
+  flex: 1;
+}
+.maret1404,
+.promosi {
   position: relative;
   line-height: 14px;
 }
-.iconnotifikasi {
-  width: 118px;
+.ketChild {
+  position: relative;
+  border-radius: 50%;
+  background-color: #73ca5c;
+  width: 8px;
+  height: 8px;
+}
+.merah {
+  background-color: #fa2c5a;
+}
+.hijau {
+  background-color: #73ca5c;
+}
+.ket {
+  width: 740px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  gap: 8px;
+}
+.syaratDanKetentuan {
+  position: relative;
+  line-height: 14px;
+
+  width: 740px;
+}
+.notif1,
+.text {
+  width: 740px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.notif1 {
+  width: 780px;
+  flex-direction: row;
   gap: 16px;
 }
-.datenotifikasiChild {
+.divider1,
+.ketItem {
   position: relative;
+  background-color: #e5e5e5;
+  width: 780px;
+  height: 1px;
+}
+.ketItem {
   border-radius: 50%;
   background-color: #fa2c5a;
   width: 8px;
   height: 8px;
 }
-.datenotifikasi,
-.notifikasiheader {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.datenotifikasi {
-  justify-content: flex-start;
-  gap: 8px;
-}
-.notifikasiheader {
-  align-self: stretch;
-  padding: 0 136px 0 0;
-  justify-content: space-between;
-}
 .terdapatPerubahanPada {
-  margin: 0;
-}
-.terdapatPerubahanPadaContainer {
-  flex: 1;
   position: relative;
+  font-size: 16px;
   line-height: 20px;
+  color: #000;
+  display: inline-block;
+  width: 740px;
 }
-.info {
-  align-self: stretch;
+.list {
   display: flex;
-  flex-direction: row;
-  padding: 0 0 0 40px;
   align-items: flex-start;
   justify-content: flex-start;
-  font-size: 16px;
-  color: #000;
+  gap: 16px;
 }
-.data,
-.konten {
+.list,
+.listNotif {
+  width: 780px;
   flex-direction: column;
 }
-.konten {
-  align-self: stretch;
+.konten,
+.listNotif,
+.notif {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 12px;
+}
+.konten {
+  flex: 1;
+  flex-direction: column;
+}
+.notif {
+  width: 780px;
+  flex-direction: row;
 }
 .data {
-  flex: 1;
+  flex-direction: column;
 }
 .data,
 .detailouter,
@@ -117,10 +145,6 @@
   font-family: Poppins;
 }
 @media screen and (max-width: 1200px) {
-  .data {
-    flex: unset;
-    align-self: stretch;
-  }
   .frameinnder {
     flex-direction: column;
   }
@@ -131,32 +155,4 @@
     padding-right: 25px;
     box-sizing: border-box;
   }
-}
-@media screen and (max-width: 420px) {
-  .notifikasiheader {
-    flex-direction: column;
-    padding-left: 0;
-    box-sizing: border-box;
-  }
-  .frameinnder,
-  .info {
-    padding-left: 65px;
-    box-sizing: border-box;
-  }
-  .frameinnder {
-    padding-left: 15px;
-  }
-}
-@media screen and (max-width: 350px) {
-  .info {
-    padding-left: 25px;
-    box-sizing: border-box;
-  }
-}
-
-.merah {
-  background-color: #fa2c5a;
-}
-.hijau {
-  background-color: #73ca5c;
 }

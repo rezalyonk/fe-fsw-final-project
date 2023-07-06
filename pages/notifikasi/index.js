@@ -52,50 +52,51 @@ const Notifikasi = () => {
         prefixIcon="/prefix-icon.svg"
         onHomeButtonClick={onHomeButtonClick}
       />
+      
       {notifications.map((notification) => (
-        <div className={styles.detailouter}>
+        <div class="container">
+        <div className={styles.detailouter} key={notification.id}>
           <div className={styles.frameinnder}>
             <div className={styles.data}>
-              <div className={styles.konten}>
-                <div className={styles.divider} />
+              <div className={styles.notif}>
                 <div className={styles.konten}>
-                  <div className={styles.notifikasiheader}>
-                    <div className={styles.iconnotifikasi}>
-                      <div className={styles.materialSymbolscircleNotifi}>
+                  <div className={styles.listNotif}>
+                    <div className={styles.list}>
+                      <div className={styles.divider} />
+                      <div className={styles.notif1}>
                         <img
-                          className={styles.vectorIcon}
+                          className={styles.materialSymbolscircleNotifiIcon}
                           alt=""
-                          src="/vector1.svg"
+                          src="/materialsymbolscirclenotificationssharp.svg"
                         />
+                        <div className={styles.text}>
+                          <div className={styles.ket}>
+                            <div className={styles.promosi}>
+                              {notification.judul}
+                            </div>
+                            <div className={styles.maret1404}>
+                              {notification.tanggal}, {notification.jam}
+                            </div>
+                            <div
+                              className={`${styles.ketChild} ${
+                                notification.judul === "Pembayaran Berhasil"
+                                  ? styles.hijau
+                                  : notification.judul === "Pemesanan Berhasil"
+                                  ? styles.merah
+                                  : ""
+                              }`}
+                            />
+                          </div>
+                          <div className={styles.terdapatPerubahanPada}>
+                            {notification.pesan}
+                          </div>
+                          <div className={styles.syaratDanKetentuan}>
+                            {notification.pesanTambahan && (
+                              <p>{notification.pesanTambahan}</p>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      <div className={styles.notifikasi1}>
-                        {notification.judul}
-                      </div>
-                    </div>
-                    <div className={styles.datenotifikasi}>
-                      <div className={styles.notifikasi1}>
-                        {notification.tanggal}, {notification.jam}
-                      </div>
-                      <div
-                        className={`${styles.datenotifikasiChild} ${
-                          notification.judul === "Pembayaran Berhasil"
-                            ? styles.hijau
-                            : notification.judul === "Pemesanan Berhasil"
-                            ? styles.merah
-                            : ""
-                        }`}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.info}>
-                    <div className={styles.terdapatPerubahanPadaContainer}>
-                      <p className={styles.terdapatPerubahanPada}>
-                        {notification.pesan}
-                      </p>
-                      <p className={styles.terdapatPerubahanPada}>
-                        {" "}
-                        Cek jadwal perjalanan Anda disini!
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -103,8 +104,10 @@ const Notifikasi = () => {
             </div>
           </div>
         </div>
+        </div>
       ))}
     </div>
+
   );
 };
 
